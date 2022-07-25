@@ -5,7 +5,7 @@ import 'bootstrap/dist/css/bootstrap.min.css'
 import gochi_logo from '../../assets/img/gochi_logo_sf.svg'
 import { useState } from 'react';
 import {auth} from '../../firebase'
-import {withRouter, Redirect} from 'react-router-dom'
+import {withRouter} from 'react-router-dom'
 
 
 
