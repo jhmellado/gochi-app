@@ -10,6 +10,7 @@ import Nosotros from "./components/view/Nosotros";
 import Registro from "./components/view/Registro";
 import Footer from "./components/shared/Footer";
 import UserProfile from "./components/view/UserProfile";
+import Curso from "./components/view/curso/Curso";
 
 const history = createBrowserHistory();
 
@@ -26,6 +27,7 @@ function App() {
             <Route path="/nosotros"><Nosotros/></Route>
             <Route path="/userprofile"><UserProfile/></Route>
             <Route path="/cursos" ><Cursos/></Route>
+            <Route path="/curso" ><Curso/></Route>
           </Switch>
         <Footer/>
       </Router>
