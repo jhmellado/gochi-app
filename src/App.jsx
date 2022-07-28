@@ -5,20 +5,25 @@ import Contacto from "./components/view/Contacto"
 import Login from "./components/view/Login"
 import {Router, Route, Switch} from 'react-router-dom';
 import {createBrowserHistory } from 'history';
-import Navbar from "./components/shared/Navbar";
+
 import Nosotros from "./components/view/Nosotros";
 import Registro from "./components/view/Registro";
 import Footer from "./components/shared/Footer";
 import UserProfile from "./components/view/UserProfile";
 import Curso from "./components/view/curso/Curso";
+import NavbarLogin from "./components/shared/NavbarLogin";
+import Navbar from "./components/shared/Navbar";
+
 
 const history = createBrowserHistory();
 
 function App() {
-
+  const isAuthenticated = true;
   return (
       <Router history={history}>
-        <Navbar/>
+        {
+          isAuthenticated ? (<NavbarLogin/>):(<Navbar/>)
+        }
           <Switch>
             <Route path="/" exact><Home /></Route>
             <Route path="/login"><Login/></Route>
@@ -27,7 +32,9 @@ function App() {
             <Route path="/nosotros"><Nosotros/></Route>
             <Route path="/userprofile"><UserProfile/></Route>
             <Route path="/cursos" ><Cursos/></Route>
-            <Route path="/curso" ><Curso/></Route>
+            <Route path="/curso" ><Curso/></Route> 
+            
+            
           </Switch>
         <Footer/>
       </Router>
