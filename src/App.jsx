@@ -13,6 +13,7 @@ import UserProfile from "./components/view/UserProfile";
 import Curso from "./components/view/curso/Curso";
 import NavbarLogin from "./components/shared/NavbarLogin";
 import Navbar from "./components/shared/Navbar";
+import Cultivos from "./components/view/Cultivos";
 
 
 const history = createBrowserHistory();
@@ -32,9 +33,8 @@ function App() {
             <Route path="/nosotros"><Nosotros/></Route>
             <Route path="/userprofile"><UserProfile/></Route>
             <Route path="/cursos" ><Cursos/></Route>
-            <Route path="/curso" ><Curso/></Route> 
-            
-            
+            <Route path="/curso" ><Curso/></Route>  
+            <Route path="/cultivos" ><Cultivos/></Route> 
           </Switch>
         <Footer/>
       </Router>
