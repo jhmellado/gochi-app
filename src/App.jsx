@@ -14,7 +14,7 @@ import Curso from "./components/view/curso/Curso";
 import NavbarLogin from "./components/shared/NavbarLogin";
 import Navbar from "./components/shared/Navbar";
 import CategoriaCultivos from "./components/view/CategoriaCultivos";
-import Cultivos from "./components/view/Cultivos";
+import Cultivos from "./components/view/cultivos/Cultivos";
 
 
 const history = createBrowserHistory();

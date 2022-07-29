@@ -5,7 +5,6 @@ import gochi_logo from '../../assets/img/gochi_logo_sf.svg'
 
 const Footer = () => {
   return (
-    <div>
         <footer className="d-flex flex-wrap justify-content-between align-items-center my-2 border-top px-3">
             <p className="col-md-4 mb-0 text-muted">© 2022 Gochi - Chile</p>
             <a href="/" className="col-md-4 d-flex align-items-center justify-content-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
@@ -19,7 +18,6 @@ const Footer = () => {
             <li className="nav-item"><a href="/contacto" className="nav-link px-2 text-muted">About</a></li>
             </ul>
         </footer>
-    </div>
   )
 }
 

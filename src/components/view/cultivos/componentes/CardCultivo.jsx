@@ -1,9 +1,9 @@
-import React from "react";
+import React from 'react'
 
-const ItemsCategoriaCultivo = (props) => {
+const CardCultivo = (props) => {
   return (
-    <div className="col pb-3">
-      <div className="card shadow-sm">
+    <div class="col">
+        <div className="card shadow-sm">
         <img
           className="bd-placeholder-img card-img-top"
           src={props.imagen}
@@ -27,7 +27,7 @@ const ItemsCategoriaCultivo = (props) => {
         </div>
       </div>
     </div>
-  );
-};
+  )
+}
 
-export default ItemsCategoriaCultivo;
+export default CardCultivo
