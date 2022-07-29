@@ -22,7 +22,7 @@ const NavbarLogin = () => {
             <div className="collapse navbar-collapse justify-content-end pe-2" id="navbarNavDropdown">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" aria-current="page" href="/">Cultivos</a>
+                        <a className="nav-link" aria-current="page" href="/categoria">Cultivos</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="/cursos">Cursos</a>
@@ -34,7 +34,7 @@ const NavbarLogin = () => {
                         <a href="/" className="link-dark text-decoration-none dropdown-toggle" id="dropdownUser2" data-bs-toggle="dropdown" aria-expanded="false">
                             <img src={gochi_logo} alt="mdo" width="32" height="32" className="rounded-circle"/>
                         </a>
-                        <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
+                        <ul className="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdownMenuLink">
                             <li><a className="dropdown-item" href="/">Action</a></li>
                             <li><a className="dropdown-item" href="/">Another action</a></li>
                             <li><hr className="dropdown-divider"/></li>

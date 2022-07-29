@@ -22,7 +22,7 @@ const Navbar = () => {
             <div className="collapse navbar-collapse justify-content-end pe-2" id="navbarNavDropdown">
                 <ul className="navbar-nav">
                     <li className="nav-item">
-                        <a className="nav-link" aria-current="page" href="/">Cultivos</a>
+                        <a className="nav-link" aria-current="page" href="/categoria">Cultivos</a>
                     </li>
                     <li className="nav-item">
                         <a className="nav-link" href="/nosotros">Nosotros</a>

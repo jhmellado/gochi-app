@@ -13,6 +13,7 @@ import UserProfile from "./components/view/UserProfile";
 import Curso from "./components/view/curso/Curso";
 import NavbarLogin from "./components/shared/NavbarLogin";
 import Navbar from "./components/shared/Navbar";
+import CategoriaCultivos from "./components/view/CategoriaCultivos";
 import Cultivos from "./components/view/Cultivos";
 
 
@@ -34,7 +35,10 @@ function App() {
             <Route path="/userprofile"><UserProfile/></Route>
             <Route path="/cursos" ><Cursos/></Route>
             <Route path="/curso" ><Curso/></Route>  
-            <Route path="/cultivos" ><Cultivos/></Route> 
+            <Route path="/categoria" ><CategoriaCultivos/></Route> 
+            <Route path="/cultivos/:name" render={ ({match}) => {
+                return <Cultivos categoria = {match.params.name}/>
+            }} />
           </Switch>
         <Footer/>
       </Router>
