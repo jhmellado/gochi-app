@@ -15,6 +15,7 @@ import NavbarLogin from "./components/shared/NavbarLogin";
 import Navbar from "./components/shared/Navbar";
 import CategoriaCultivos from "./components/view/CategoriaCultivos";
 import Cultivos from "./components/view/cultivos/Cultivos";
+import Cultivo from "./components/view/cultivo/Cultivo";
 
 
 const history = createBrowserHistory();
@@ -38,6 +39,9 @@ function App() {
             <Route path="/categoria" ><CategoriaCultivos/></Route> 
             <Route path="/cultivos/:name" render={ ({match}) => {
                 return <Cultivos categoria = {match.params.name}/>
+            }} />
+            <Route path="/cultivo/:name/:id" render={ ({match}) => {
+                return <Cultivo id = {match.params.id} name = {match.params.name}/>
             }} />
           </Switch>
         <Footer/>

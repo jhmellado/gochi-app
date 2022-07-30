@@ -4,7 +4,7 @@ import Album from './componentes/Album'
 const Cultivos = (props) => {
   return (
     <div>{props.categoria}
-    <Album/>
+    <Album categoria ={props.categoria}/>
     </div>
   )
 }
