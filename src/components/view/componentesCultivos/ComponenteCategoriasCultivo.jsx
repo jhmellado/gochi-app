@@ -14,7 +14,7 @@ const ComponenteCategoriasCultivo = (props) => {
   }, []);
 
   const obtenerDatos = async () => {
-    const data = await fetch('http://192.168.1.13:5000/categorias')
+    const data = await fetch('http://localhost:5000/categorias')
     const users = await data.json()
     setCategorias(users["docs"])
 }

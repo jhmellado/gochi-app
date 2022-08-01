@@ -9,7 +9,7 @@ const Album = (props) => {
     useEffect(() => {
       document.title = `Gochi - ${props.categoria}`
       const obtenerDatos = async () => {
-        const data = await fetch(`http://192.168.1.13:5000/cultivos/${props.categoria}`)
+        const data = await fetch(`http://localhost:5000/cultivos/${props.categoria}`)
         const users = await data.json()
         console.log(users)
         setCultivos(users)
