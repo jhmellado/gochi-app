@@ -1,37 +1,45 @@
 import React from "react";
 import Home from "./components/view/Home";
 import Cursos from "./components/view/Cursos";
-import Contacto from "./components/view/Contacto"
+//import Contacto from "./components/view/Contacto"
 import Login from "./components/view/Login"
-import {Router, Route, Switch} from 'react-router-dom';
-import {createBrowserHistory } from 'history';
+import {Route, Switch, BrowserRouter} from 'react-router-dom';
 
 import Nosotros from "./components/view/Nosotros";
 import Registro from "./components/view/Registro";
 import Footer from "./components/shared/Footer";
 import UserProfile from "./components/view/UserProfile";
 import Curso from "./components/view/curso/Curso";
-import NavbarLogin from "./components/shared/NavbarLogin";
-import Navbar from "./components/shared/Navbar";
 import CategoriaCultivos from "./components/view/CategoriaCultivos";
 import Cultivos from "./components/view/cultivos/Cultivos";
 import Cultivo from "./components/view/cultivo/Cultivo";
+import Navbar from "./components/shared/Navbar/Navbar";
 
-
-const history = createBrowserHistory();
+import { auth } from "./firebase";
+import { useState } from "react";
+import { useEffect } from "react";
 
 function App() {
-  const isAuthenticated = true;
-  return (
-      <Router history={history}>
-        {
-          isAuthenticated ? (<NavbarLogin/>):(<Navbar/>)
-        }
+
+  const [firebaseUser, setFirebaseUser] = useState(false);
+
+  useEffect(() => {
+    auth.onAuthStateChanged(user => {
+      if (user) {
+        setFirebaseUser(true)
+      } else {
+        setFirebaseUser(null)
+      }
+    })
+  },[])
+
+  return firebaseUser !== false ? (
+      <BrowserRouter>
+        <Navbar firebaseuser ={firebaseUser}/>
           <Switch>
             <Route path="/" exact><Home /></Route>
             <Route path="/login"><Login/></Route>
             <Route path="/registro"><Registro/></Route>
-            <Route path="/contacto"><Contacto/></Route>
             <Route path="/nosotros"><Nosotros/></Route>
             <Route path="/userprofile"><UserProfile/></Route>
             <Route path="/cursos" ><Cursos/></Route>
@@ -45,8 +53,8 @@ function App() {
             }} />
           </Switch>
         <Footer/>
-      </Router>
-      );
+      </BrowserRouter>
+      ):(<p>cargando...</p>)
 }
 
 

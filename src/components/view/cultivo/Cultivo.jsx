@@ -1,5 +1,7 @@
 import React from "react";
 import { useEffect, useState } from "react";
+import { withRouter } from "react-router";
+import { auth } from "../../../firebase";
 import Archivos from "./componentes/Archivos";
 import BannerPublicidad from "./componentes/BannerPublicidad";
 import ComoCultivar from "./componentes/ComoCultivar";
@@ -16,6 +18,12 @@ const Cultivo = (props) => {
   const [cultivo, setCultivo] = useState([]);
 
   useEffect(() => {
+    if (auth.currentUser) {
+      console.log(auth.currentUser);
+    } else {
+      props.history.push("/login");
+    }
+    document.title = "Gochi - Curso";
     document.title = `Gochi - ${props.name}`;
     const obtenerDatos = async () => {
       const data = await fetch(`http://localhost:5000/cultivos/${props.id}`);
@@ -72,4 +80,4 @@ const Cultivo = (props) => {
   );
 };
 
-export default Cultivo;
+export default withRouter(Cultivo);

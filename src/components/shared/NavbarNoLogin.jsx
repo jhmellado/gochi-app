@@ -3,7 +3,7 @@ import "../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
 import 'bootstrap/dist/css/bootstrap.min.css'
 import gochi_logo from '../../assets/img/gochi_logo_sf.svg'
 
-const Navbar = () => {
+const NavbarNoLogin = () => {
   return (
 <nav className="navbar navbar-expand-lg" style={{backgroundColor: "#e7f6a8"}}>
         <div className="container-fluid">
@@ -40,4 +40,4 @@ const Navbar = () => {
   )
 }
 
-export default Navbar
+export default NavbarNoLogin

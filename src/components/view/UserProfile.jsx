@@ -1,7 +1,18 @@
 import CardProfile from "../component/CardProfile";
 import gochi from '../../assets/img/GOCHI.svg';
-
+import { useEffect } from "react";
+import { auth } from "../../firebase";
+import { withRouter } from "react-router";
 const UserProfile = (props) => {
+
+    useEffect(() => {
+        if (auth.currentUser) {
+            console.log(auth.currentUser)
+        } else {
+            props.history.push('/login')
+        }
+    },[props.history])
+
     return ( 
         <div>
             <section className="shadow-sm py-5 p-md-5 mb-2 mt-2 rounded text-bg-secondary text-center container">
@@ -44,4 +55,4 @@ const UserProfile = (props) => {
      );
 }
  
-export default UserProfile;
+export default withRouter(UserProfile)

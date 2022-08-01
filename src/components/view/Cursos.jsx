@@ -1,15 +1,20 @@
-import React from 'react'
-import { useEffect } from 'react';
+import React from "react";
+import { useEffect } from "react";
+import { withRouter } from "react-router";
+import { auth } from "../../firebase";
 
-const Cursos = () => {
 
-  useEffect(()=> {
+const Cursos = (props) => {
+  useEffect(() => {
+    if (auth.currentUser) {
+      console.log(auth.currentUser);
+    } else {
+      props.history.push("/login");
+    }
     document.title = "Gochi - Cursos";
-  },[])
+  }, [props.history]);
 
-  return (
-    <div>Cursos</div>
-  )
-}
+  return <div>Cursos</div>;
+};
 
-export default Cursos
+export default withRouter(Cursos);
