@@ -59,9 +59,9 @@ const Registro = (props) => {
   },[email,contrasena,props.history])
 
   return (
-    <div className="mt-5">
+    <div className="container my-5">
         <div className='row justify-content-center'>
-            <div className='col-12 col-sm-8 col-md-6 col-xl-4'> 
+            <div className='col-12 col-sm-8 col-md-6 col-xl-4 my-auto mb-4'> 
                 <form onSubmit={procesarInputs}>
                     <img className='mx-auto d-block' src={gochi_logo} alt="" width="50%" height="50%"/>
                     <h1 className="h3 mb-3 fw-normal text-center">
