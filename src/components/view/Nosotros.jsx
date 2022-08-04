@@ -31,7 +31,7 @@ const Nosotros = () => {
             ></img>
           </div>
           <div className="boxB col2">
-            <h1>Gochi</h1>
+            <h1 className='texto_nosotros'>Gochi</h1>
             <p id="txtBanner">
               Lorem ipsum dolor sit amet consectetur adipisicing elit.
               Excepturi, ad.
@@ -41,7 +41,7 @@ const Nosotros = () => {
       </section>
       <section class="sobre-nosotro">
         <div className="subSobre-nosotros pt-5">
-          <h2>Sobre nosotros</h2>
+          <h2 className='texto_nosotros'>Sobre nosotros</h2>
         </div>
         <div className="containerS">
           <div className="boxS">
@@ -53,7 +53,7 @@ const Nosotros = () => {
             </p>
           </div>
           <div className="boxS">
-            <h2>Vision</h2>
+            <h2 className='texto_nosotros'>Vision</h2>
             <p>
               Lorem ipsum dolor sit amet consectetur adipisicing elit. Ullam,
               eveniet rerum! Voluptatum ad corporis optio amet, praesentium in

@@ -18,6 +18,7 @@ import Navbar from "./components/shared/Navbar/Navbar";
 import { auth } from "./firebase";
 import { useState } from "react";
 import { useEffect } from "react";
+import TerminosCondiciones from "./components/view/TerminosCondiciones";
 
 function App() {
   const [firebaseUser, setFirebaseUser] = useState(false);
@@ -44,6 +45,9 @@ function App() {
         </Route>
         <Route path="/registro">
           <Registro />
+        </Route>
+        <Route path="/terminos-y-condiciones">
+          <TerminosCondiciones/>
         </Route>
         <Route path="/nosotros">
           <Nosotros />

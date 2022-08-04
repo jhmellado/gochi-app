@@ -78,10 +78,15 @@ const Login = (props) => {
   return (
     <div className="container my-5">
       <div className='row justify-content-center'>
-        <div className='col-12 col-sm-8 col-md-6 col-xl-4 mb-4'> 
+        <div className='col-11 col-sm-8 col-md-6 col-xl-4 mb-4 rounded'
+        style={{backgroundColor: "#e7f6a8",
+          borderStyle: "solid",
+          borderWidth: "1px",
+          borderColor: "#293800",
+        }}> 
           <form onSubmit={procesarInputs}>
-            <img className='mx-auto d-block' src={gochi_logo} alt="" width="50%" height="50%"/>
-            <h1 className="h3 mb-3 fw-normal text-center">
+            <img className='mx-auto d-block' src={gochi_logo} alt="" width="30%" height="30%"/>
+            <h1 className="h2 mb-5 text-center">
               Ingresa tus datos
             </h1>
             {
@@ -91,26 +96,29 @@ const Login = (props) => {
                 </div>
               )
             }
-            <div className="form-floating">
-              <input type="email" className="form-control mb-2" id="floatingInput" 
-                     placeholder="name@example.com"
+            <div className="col-md">
+            <label htmlFor="floatingInput"
+                   className="s-mb-1 s-weight-semibold small">E-mail</label>
+              <input type="email" className="form-control mb-3" id="floatingInput" 
+                     placeholder="Escribe tu correo electrónico"
                      onChange={(event) => setEmail(event.target.value)}
                      value = {email}
               />
-              <label htmlFor="floatingInput">E-mail</label>
+              
             </div>
-            <div className="form-floating">
-              <input type="password" className="form-control mb-2" id="floatingPassword" 
-                     placeholder="Password"
+            <div className="col-md">
+            <label htmlFor="floatingPassword"
+                   className="s-mb-1 s-weight-semibold small">Contraseña</label>
+              <input type="password" className="form-control mb-3" id="floatingPassword" 
+                     placeholder="Escribe tu contraseña"
                      onChange={(event) => setContrasena(event.target.value)}
                      value = {contrasena}
                      />
-              <label htmlFor="floatingPassword">Contraseña</label>
             </div>
             <button className="w-100 btn btn-lg text-white" style={{backgroundColor: "#293800"}} type="submit">
               Iniciar Sesión
             </button>
-            <p className="mb-3 text-muted">¿No tienes una cuenta? <a href='/registro'>Registrate aquí</a></p> 
+            <p className="mb-3 text-muted text-center">¿No tienes una cuenta? <a href='/registro'>Registrate aquí</a></p> 
           </form>
         </div>
       </div>

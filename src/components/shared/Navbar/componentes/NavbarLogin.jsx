@@ -1,9 +1,9 @@
 import React from "react";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
-import gochi_logo from "../../assets/img/gochi_logo_sf.svg";
-import { auth } from "../../firebase";
+import gochi_logo from "../../../../assets/img/gochi_logo_sf.svg";
 import { withRouter } from "react-router";
+import { auth } from "../../../../firebase";
 
 const NavbarLogin = (props) => {
   const cerrarSesion = () => {

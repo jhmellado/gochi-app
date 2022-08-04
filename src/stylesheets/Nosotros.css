@@ -38,7 +38,7 @@
     justify-content: center;
     flex-direction: column;
   }
-  h1 {
+  .texto_nosotros {
     font-size: 4rem;
     color: #4c4c4c;
     font-family: fuenteNosotros;

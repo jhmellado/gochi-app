@@ -1,7 +1,7 @@
 import React from 'react'
-import "../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"
+import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import 'bootstrap/dist/css/bootstrap.min.css'
-import gochi_logo from '../../assets/img/gochi_logo_sf.svg'
+import gochi_logo from '../../../../assets/img/gochi_logo_sf.svg'
 
 const NavbarNoLogin = () => {
   return (
