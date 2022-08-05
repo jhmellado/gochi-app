@@ -2,6 +2,7 @@ import React from "react";
 import { useEffect, useState } from "react";
 import { withRouter } from "react-router";
 import { auth } from "../../../firebase";
+import Cargando from "../../component/Cargando";
 import Archivos from "./componentes/Archivos";
 import BannerPublicidad from "./componentes/BannerPublicidad";
 import ComoCultivar from "./componentes/ComoCultivar";
@@ -18,22 +19,26 @@ const Cultivo = (props) => {
   const [cultivo, setCultivo] = useState([]);
 
   useEffect(() => {
-    if (auth.currentUser) {
-      console.log(auth.currentUser);
-    } else {
-      props.history.push("/login");
-    }
-    document.title = "Gochi - Curso";
-    document.title = `Gochi - ${props.name}`;
+
     const obtenerDatos = async () => {
       const data = await fetch(`http://localhost:5000/cultivos/${props.id}`);
       const users = await data.json();
       setCultivo(users);
     };
-    obtenerDatos();
+    
+    if (auth.currentUser) {
+      console.log(auth.currentUser);
+      obtenerDatos();
+    } else {
+      props.history.push("/login");
+    }
+    document.title = "Gochi - Curso";
+    document.title = `Gochi - ${props.name}`;
   }, [props]);
 
-  return (
+ 
+
+  return auth.currentUser !== null ? (
     <div className="container">
       <EncabezadoCultivo
         nombre={cultivo.cul_name_go}
@@ -77,7 +82,7 @@ const Cultivo = (props) => {
         </div>
       </div>
     </div>
-  );
+  ):(<Cargando/>);
 };
 
 export default withRouter(Cultivo);

@@ -82,10 +82,10 @@ const Registro = (props) => {
             <h1 className="h2 mb-5 text-center">
               Iníciate en el autocultivo con Gochi
             </h1>
+            {error && <div className="alert alert-danger">{error}</div>}
             <p>
               <strong>Ingresa tus datos</strong>
             </p>
-            {error && <div className="alert alert-danger">{error}</div>}
             <div className="row g-3 mb-3">
               <div className="col-md">
                 <label

@@ -1,6 +1,7 @@
 import React, { useEffect } from "react";
 import { withRouter } from "react-router";
 import { auth } from "../../firebase";
+import Cargando from "../component/Cargando";
 import BannerPublicidad from "./componentesCultivos/BannerPublicidad";
 import ComponenteCategoriasCultivo from "./componentesCultivos/ComponenteCategoriasCultivo";
 import EncabezadoCultivo from "./componentesCultivos/EncabezadoCultivo";
@@ -10,12 +11,13 @@ const CategoriaCultivos = (props) => {
     if (auth.currentUser) {
       console.log(auth.currentUser);
     } else {
+      console.log(auth.currentUser);
       props.history.push("/login");
     }
     document.title = "Gochi - Categorías";
   }, [props.history]);
 
-  return (
+  return auth.currentUser !== null ?(
     <div>
       <EncabezadoCultivo />
       <hr className="divider" />
@@ -24,6 +26,8 @@ const CategoriaCultivos = (props) => {
         <BannerPublicidad />
       </div>
     </div>
+  ):(
+    <Cargando/>
   );
 };
 
