@@ -19,6 +19,7 @@ import { auth } from "./firebase";
 import { useState } from "react";
 import { useEffect } from "react";
 import TerminosCondiciones from "./components/view/TerminosCondiciones";
+import ResetPassword from "./components/view/ResetPassword";
 
 function App() {
   const [firebaseUser, setFirebaseUser] = useState(false);
@@ -45,6 +46,9 @@ function App() {
         </Route>
         <Route path="/registro">
           <Registro />
+        </Route>
+        <Route path="/resetpassword">
+          <ResetPassword />
         </Route>
         <Route path="/terminos-y-condiciones">
           <TerminosCondiciones/>

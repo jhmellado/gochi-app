@@ -119,6 +119,7 @@ const Login = (props) => {
               Iniciar Sesión
             </button>
             <p className="mb-3 text-muted text-center">¿No tienes una cuenta? <a href='/registro'>Registrate aquí</a></p> 
+            <p className="mb-3 text-muted text-center"><a href='/resetpassword'>¿Olvidaste tu contraseña?</a></p>
           </form>
         </div>
       </div>

@@ -80,7 +80,7 @@ const Registro = (props) => {
               height="30%"
             />
             <h1 className="h2 mb-5 text-center">
-              Iniciate en el autocultivo con Gochi
+              Iníciate en el autocultivo con Gochi
             </h1>
             <p>
               <strong>Ingresa tus datos</strong>
