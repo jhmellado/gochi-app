@@ -14,7 +14,7 @@ const ComponenteCategoriasCultivo = (props) => {
   }, []);
 
   const obtenerDatos = async () => {
-    const data = await fetch('http://localhost:5000/categorias')
+    const data = await fetch('http://0b993829-ecd8-4c41-b93f-032c40fcb786.clouding.host:3000/categorias/')
     const users = await data.json()
     setCategorias(users["docs"])
 }
