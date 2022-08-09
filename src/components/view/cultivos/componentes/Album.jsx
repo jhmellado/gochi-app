@@ -9,9 +9,8 @@ const Album = (props) => {
     useEffect(() => {
       document.title = `Gochi - ${props.categoria}`
       const obtenerDatos = async () => {
-        const data = await fetch(`http://localhost:5000/cultivos/${props.categoria}`)
+        const data = await fetch(`http://0b993829-ecd8-4c41-b93f-032c40fcb786.clouding.host:3000/cultivos/${props.categoria}`)
         const users = await data.json()
-        console.log(users)
         setCultivos(users)
     }
       obtenerDatos();

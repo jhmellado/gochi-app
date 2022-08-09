@@ -78,7 +78,7 @@ function App() {
         <Route
           path="/cultivo/:name/:id"
           render={({ match }) => {
-            return <Cultivo id={match.params.id} name={match.params.name} />;
+            return <Cultivo usuario = {firebaseUser} id={match.params.id} name={match.params.name} />;
           }}
         />
       </Switch>
