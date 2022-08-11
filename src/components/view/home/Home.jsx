@@ -1,6 +1,6 @@
 import React from "react";
 import { useEffect } from "react";
-import "./stylehome/InforHome.css";
+
 import InicioHome from "./componentes/InicioHome";
 import InforHome from "./componentes/InforHome";
 

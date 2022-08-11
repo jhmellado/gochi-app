@@ -1,5 +1,4 @@
 import React from "react";
-import "../stylehome/InforHome.css";
 import "../../../shared/Navbar/styleNav/stylenav.css";
 
 function InforHome({ titulo, descripcion, imagen, derecha }) {
