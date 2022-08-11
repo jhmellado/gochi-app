@@ -1,0 +1,19 @@
+*{
+    margin: 0%;
+    padding: 0;
+}
+.contenedorinicio{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    background-image:url("../../../../assets/img/foto_home.png");
+    background-repeat: no-repeat;
+    background-size: cover;
+
+    background-position: center center ;   
+}
+
+
+
