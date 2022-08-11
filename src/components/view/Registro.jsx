@@ -6,7 +6,7 @@ import gochi_logo from "../../assets/img/gochi_logo_sf.svg";
 import { useState } from "react";
 import { auth, db } from "../../firebase";
 import { withRouter } from "react-router-dom";
-import "../view/home/stylehome/InforHome.css"
+
 
 const Registro = (props) => {
   useEffect(() => {
