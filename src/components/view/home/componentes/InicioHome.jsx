@@ -7,12 +7,14 @@ function InicioHome({
 }) {
   return (
     <div className="contenedorinicio">
-      <div className="contenedor-texto">
-      <h1 className="titulohome">{titulo}</h1>
-
-      <p>{descripcion}</p>
-      <button className="btn-registrar">Registrarse
-      </button>
+      <div className="contenedor-texto ">
+      <main class="px-5 ">
+    <h1>{titulo}</h1>
+    <p class="lead">{descripcion}</p>
+    <p class="lead">
+      <a href="#" class="btn btn-lg btn-secondary fw-bold border-dark bg-green">Registrate</a>
+    </p>
+  </main>
       </div>
     </div>
   );

@@ -28,14 +28,16 @@ function NavbarNoLogin({ name }) {
         </div>
 
         <div className={`links ${clicked ? "active" : ""}`}>
-          <a className="btn-cultivos" href="/categoria">
+          <a className="btn-cultivos mihover btn-estilo" href="/categoria">
             <RiPlantFill className="miicons" /> Cultivos
           </a>
 
-          <a className="btn-nosotros" href="/nosotros">
+          <a className="btn-nosotros mihover btn-estilo" href="/nosotros">
             <RiTeamLine className="miicons" /> Nosotros
           </a>
-          <a className="btn-iniciar-sesion" href="/login">Iniciar Sesión</a>
+          <a className="btn-iniciar-sesion mihover btn-estilo" href="/login">
+            Iniciar Sesión
+          </a>
           <a className="btn-registro" href="/registro">
             Registrarse
           </a>
@@ -52,14 +54,11 @@ function NavbarNoLogin({ name }) {
 export default NavbarNoLogin;
 
 const NavContainer = styled.nav`
-
-
   h2 {
     font-weight: 400;
     span {
       font-weight: bold;
     }
-    
   } 
   .miicons{
     display: none;
@@ -69,89 +68,67 @@ const NavContainer = styled.nav`
   left:0;
   height:60px;
   width: 100%;
-
   font-family: itali;
   background: rgba(231, 246, 168, 1);
   display: flex;
   align-items: center;
   justify-content: space-between;
-  
   a {
     color: #fff;
     text-decoration: none;
-    
     padding:10px 10px;
-
   }
   .links a:hover{
     background:rgba(0, 0, 0, 0.2);
     border-radius:6px;
   }
-
   .links {
     position: absolute;
-
     top: -1160px;
     left:110;
     right: -1000px;
     margin-left: auto;
     margin-right: auto;
     text-align: center;
-   
-    
     a {
       color: transparent ;
       display: block;
       transition: all .4s ease-in-out ;
       right: -1000px;
     }
-    @media (min-width: 768px) {
+    @media (min-width: 600px) {
       position: initial;
       margin: 0;
-      
-      
-      
       a {
         font-size: 1rem;
         color: #333;
         display: inline;
-        
       }
       display:block;
   }
 }
 
   .links.active {
-    
     width: 30%;
     display: block;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    
     top:120%;
     left: 0;
     right: 10%;
     text-align: center;
+
     .miicons{
       display: inline;
-      color: green;
+      color: black;
     }
-    
-    .btn-cultivos{
-      position:absolute;
-      top:10rem;
-      
-      left:0;
-      width: 140%;
-      transition: all 0.3s;
-      text-align:center;
 
-      --color: #00A97F;
+    .btn-estilo{
+      --color: #black;
       padding: 0.4em 1.2em;
       background-color: transparent;
       border-radius: .3em;
-      
       overflow: hidden;
       cursor: pointer;
       transition: .5s;
@@ -162,75 +139,45 @@ const NavContainer = styled.nav`
       text-transform: uppercase;
       color: var(--color);
       z-index: 1; 
-
-      
-     
+    }
+    
+    .btn-cultivos{
+      position:absolute;
+      top:3rem;
+      left:5.8rem;
+      width: 140%;
+      transition: all 0.3s;
+      text-align:center;  
     }
     .btn-nosotros{
       position:absolute;
-      top:13.5rem;
-      
-      left:0;
+      top:6rem;
+      left:5.8rem;
       width: 140%;
       transition: all 0.3s;
       text-align:center;
-
-      --color: #00A97F;
-      padding: 0.4em 1.2em;
-      background-color: transparent;
-      border-radius: .3em;
-      
-      overflow: hidden;
-      cursor: pointer;
-      transition: .5s;
-      font-weight: 300;
-      font-size: 17px;
-      border: 1px solid;
-      font-family: inherit;
-      text-transform: uppercase;
-      color: var(--color);
-      z-index: 1;
-
     }
     .btn-iniciar-sesion{
-      box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.1), 0 0 9px 3px rgba(27, 253, 156, 0.1);
- 
       position:absolute;
-      top:17rem;
-      
-      left:0;
+      top:9rem;
+      left:5.8rem;
       width: 140%;
       transition: all 0.3s;
       text-align:center;
-
-      --color: #00A97F;
-      padding: 0.4em 1.2em;
-      background-color: transparent;
-      border-radius: .3em;
-      
-      overflow: hidden;
-      cursor: pointer;
-      transition: .5s;
-      font-weight: 300;
-      font-size: 17px;
-      border: 1px solid;
-      font-family: inherit;
-      text-transform: uppercase;
-      color: var(--color);
-      z-index: 1;
     }
-
+    .btn-registro:hover{
+      -webkit-box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 50px 5px rgba(0,0,0,0); 
+box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 50px 5px rgba(0,0,0,0);
+    }
     .btn-registro{
-      
       position:absolute;
-      top:20.5rem;
-      left:0;
+      top:12rem;
+      left:5.8rem;
       width: 140%;
       transition: all 0.3s;
       text-align:center;
-      box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
 
-      --color: #00A97F;
+      --color: #333;
       padding: 0.4em 1.7em;
       background-color: transparent;
       border-radius: .3em;
@@ -247,10 +194,12 @@ const NavContainer = styled.nav`
       z-index: 1;
       
     }
-    .btn-registro:hover {
-      color: #82ffc9;
-      box-shadow: inset 0 0 10px rgba(27, 253, 156, 0.6), 0 0 9px 3px rgba(27, 253, 156, 0.2);
-     }
+    .mihover:hover {
+      transition: all 0.8s ease;
+      color: #333;
+      -webkit-box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 50px 5px rgba(0,0,0,0); 
+box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 50px 5px rgba(0,0,0,0);
+} 
      
 
     a {
@@ -269,7 +218,7 @@ const NavContainer = styled.nav`
   }
     
   .burguer {
-    @media (min-width: 768px) {
+    @media (min-width: 600px) {
       display:none; 
     
     a {
@@ -294,18 +243,15 @@ const BgDiv = styled.div`
 
   &.active {
     border-radius: 0 0 0 4%;
-    top: 61px;
-    left: 0.01rem;
+    top: 60px;
+    left: 12.01rem;
     width: 200%;
     height: 2000%;
     overflow: hidden;
 
-    &.active:target{
+    &.active:target {
       display: none;
-     
     }
-
-    
 
     a {
       position: absolute;

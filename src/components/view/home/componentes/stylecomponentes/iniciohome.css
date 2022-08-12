@@ -13,6 +13,11 @@
     background-size: cover;
     background-position: center center ;   
 }
+.contenedor-texto {
+    border: solid 1px red;
+    
+}
+
 
 
 
