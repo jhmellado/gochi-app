@@ -78,13 +78,23 @@ const NavbarLogin = (props) => {
                 aria-labelledby="navbarDropdownMenuLink"
               >
                 <li>
-                  <a className="dropdown-item" href="/">
-                    Action
+                  <a className="dropdown-item" href="/userprofile">
+                    Mi perfil
                   </a>
                 </li>
                 <li>
                   <a className="dropdown-item" href="/">
-                    Another action
+                    Mis Cultivos
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/">
+                    Mis Cursos
+                  </a>
+                </li>
+                <li>
+                  <a className="dropdown-item" href="/">
+                    Configuración
                   </a>
                 </li>
                 <li>

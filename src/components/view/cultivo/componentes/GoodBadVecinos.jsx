@@ -10,7 +10,7 @@ const GoodBadVecinos = (props) => {
         borderColor: "#e7f6a8",
       }}
     >
-      <h2 className="blog-post-title mb-1">Buenos y malos vecinos</h2>
+      <h2 className="mb-1">Buenos y malos vecinos</h2>
       <p>
         This is some additional paragraph placeholder content. It has been
         written to fill the available space and show how a longer snippet of

@@ -16,13 +16,13 @@ const Album = (props) => {
       obtenerDatos();
     }, [props.categoria]);
 
-    const frutales = cultivos.map((cultivo, index)=>
+    const frutales = cultivos.length > 0 ? (cultivos.map((cultivo, index)=>
         <CardCultivo key = {index} 
                     nombre = {cultivo.cul_name_go} 
                     temporada = {cultivo.cul_cuando_cultivar_go.cul_temporada_siembra_go}
                     imagen = {cultivo.cul_icon_go}
                     href = {cultivo._id} />
-    );
+    )) : (<h2>Aún no hay cultivos para esta categoría</h2>)
 
   return (
     <div className="album py-5 bg-light">

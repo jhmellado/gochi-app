@@ -15,7 +15,7 @@ import Cultivos from "./components/view/cultivos/Cultivos";
 import Cultivo from "./components/view/cultivo/Cultivo";
 import Navbar from "./components/shared/Navbar/Navbar";
 
-import { auth } from "./firebase";
+import { auth, db } from "./firebase";
 import { useState } from "react";
 import { useEffect } from "react";
 import TerminosCondiciones from "./components/view/TerminosCondiciones";
@@ -24,11 +24,20 @@ import Cargando from "./components/component/Cargando";
 
 function App() {
   const [firebaseUser, setFirebaseUser] = useState(false);
+  
+
+  const obtenerUsuario = (user) => {
+    db.collection("usuarios")
+  .doc(user.uid)
+  .onSnapshot((doc) => {
+    setFirebaseUser(doc.data());
+  });
+  };
 
   useEffect(() => {
     auth.onAuthStateChanged((user) => {
       if (user) {
-        setFirebaseUser(user);
+        obtenerUsuario(user);
       } else {
         setFirebaseUser(null);
       }
@@ -58,13 +67,13 @@ function App() {
           <Nosotros />
         </Route>
         <Route path="/userprofile">
-          <UserProfile />
+          <UserProfile usuario ={firebaseUser} />
         </Route>
         <Route path="/cursos">
           <Cursos />
         </Route>
         <Route path="/curso">
-          <Curso />
+          <Curso usuario ={firebaseUser} />
         </Route>
         <Route path="/categoria">
           <CategoriaCultivos />
@@ -78,7 +87,7 @@ function App() {
         <Route
           path="/cultivo/:name/:id"
           render={({ match }) => {
-            return <Cultivo usuario = {firebaseUser} id={match.params.id} name={match.params.name} />;
+            return <Cultivo usuario ={firebaseUser} id={match.params.id} name={match.params.name} />;
           }}
         />
       </Switch>

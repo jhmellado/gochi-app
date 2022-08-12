@@ -10,7 +10,7 @@ const ComponenteCategoriasCultivo = (props) => {
  
   useEffect(() => {
     document.title = "Gochi - Cultivos"
-    obtenerDatos()
+    obtenerDatos();
   }, []);
 
   const obtenerDatos = async () => {
