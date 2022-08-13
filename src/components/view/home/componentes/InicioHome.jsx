@@ -7,15 +7,17 @@ function InicioHome({
 }) {
   return (
     <div className="contenedorinicio">
-      <div className="contenedor-texto ">
-      <main class="px-5 ">
-    <h1>{titulo}</h1>
-    <p class="lead">{descripcion}</p>
-    <p class="lead">
-      <a href="#" class="btn btn-lg btn-secondary fw-bold border-dark bg-green">Registrate</a>
-    </p>
-  </main>
+      <div className="col-md-7 p-lg-1 mx-auto p-5 text-center bg-dark bg-opacity-25">
+      <h1 className="display-1 p-lg-2 text-white letratitulo bg-dark bg-opacity-25">{titulo}</h1>
+          <div>
+          <p className="display-5 fs-2 p-lg-1  text-white letradescripcion " >{descripcion}</p>
+         
+          </div>
+          
       </div>
+      <a className="btn btn-success bg-success bg-opacity-75  w-auto p-2 fs-4 letradescripcion" href="/registro">
+            Registrate
+          </a>
     </div>
   );
 }

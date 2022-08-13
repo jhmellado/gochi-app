@@ -1,9 +1,13 @@
+@font-face {
+  font-family: fuentelogo;
+  src: url("../../../../fuentes/Oswald/Oswald-VariableFont_wght.ttf");
+}
 .spinner {
   height: 50px;
   width: 40px;
   font-size: 18px;
   font-weight: 60;
-  font-family: cursive;
+  font-family: fuentelogo;
   letter-spacing: 0.4em;
   float:right;
   color: #333;
@@ -13,6 +17,7 @@
   justify-content: center;
   align-items: center;
   padding-left: 30%;
+
 
 }
 /*

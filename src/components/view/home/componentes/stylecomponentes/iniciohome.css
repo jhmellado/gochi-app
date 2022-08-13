@@ -14,10 +14,25 @@
     background-position: center center ;   
 }
 .contenedor-texto {
-    border: solid 1px red;
-    
+    align-items: center;
 }
-
-
-
-
+@font-face {
+    font-family: fuenteTitulo;
+    src: url("../../../../../fuentes/Playball/Playball-Regular.ttf");    
+  }
+  @font-face {
+    font-family: fuenteDescripcion;
+    src: url("../../../../../fuentes/WorkSans/WorkSans-Italic-VariableFont_wght.ttf");    
+  }
+  .letratitulo{
+    font-family: fuenteTitulo;
+    font-size: 40px;
+    font-weight: 100rem;
+  }
+  .letradescripcion{
+    font-family: fuenteDescripcion;
+  }
+  
+.tarjetita{
+  z-index: -40;
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { RiPlantFill, RiTeamLine } from "react-icons/ri";
+
 /*import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import 'bootstrap/dist/css/bootstrap.min.css'*/
 import gochi_logo from "../../../../assets/img/gochi_logo_sf.svg";
@@ -29,11 +30,12 @@ function NavbarNoLogin({ name }) {
 
         <div className={`links ${clicked ? "active" : ""}`}>
           <a className="btn-cultivos mihover btn-estilo" href="/categoria">
-            <RiPlantFill className="miicons" /> Cultivos
+            <RiPlantFill className="miicons" />
+            Cultivos
           </a>
-
           <a className="btn-nosotros mihover btn-estilo" href="/nosotros">
-            <RiTeamLine className="miicons" /> Nosotros
+            <RiTeamLine className="miicons" />
+            Nosotros
           </a>
           <a className="btn-iniciar-sesion mihover btn-estilo" href="/login">
             Iniciar Sesión
@@ -54,6 +56,10 @@ function NavbarNoLogin({ name }) {
 export default NavbarNoLogin;
 
 const NavContainer = styled.nav`
+@font-face {
+  font-family: fuentetitulo;
+  src: url("../../../../fuentes/Caveat//Playball/Playball-Regular.ttf");
+}
   h2 {
     font-weight: 400;
     span {
@@ -68,7 +74,6 @@ const NavContainer = styled.nav`
   left:0;
   height:60px;
   width: 100%;
-  font-family: itali;
   background: rgba(231, 246, 168, 1);
   display: flex;
   align-items: center;
@@ -77,6 +82,9 @@ const NavContainer = styled.nav`
     color: #fff;
     text-decoration: none;
     padding:10px 10px;
+    text-transform: uppercase;
+    font-family: Lucida Sans ;
+
   }
   .links a:hover{
     background:rgba(0, 0, 0, 0.2);
@@ -114,14 +122,20 @@ const NavContainer = styled.nav`
     position: absolute;
     margin-left: auto;
     margin-right: auto;
+  
     top:120%;
     left: 0;
     right: 10%;
     text-align: center;
 
     .miicons{
-      display: inline;
       color: black;
+      display: inline ;
+      justify-content: center ;
+      float: left;
+      align-items: center;
+      
+      
     }
 
     .btn-estilo{
@@ -133,12 +147,13 @@ const NavContainer = styled.nav`
       cursor: pointer;
       transition: .5s;
       font-weight: 300;
-      font-size: 17px;
+      font-size: 14px;
       border: 1px solid;
       font-family: inherit;
       text-transform: uppercase;
       color: var(--color);
       z-index: 1; 
+
     }
     
     .btn-cultivos{
@@ -147,7 +162,7 @@ const NavContainer = styled.nav`
       left:5.8rem;
       width: 140%;
       transition: all 0.3s;
-      text-align:center;  
+      text-align: center;
     }
     .btn-nosotros{
       position:absolute;
@@ -156,6 +171,8 @@ const NavContainer = styled.nav`
       width: 140%;
       transition: all 0.3s;
       text-align:center;
+      
+
     }
     .btn-iniciar-sesion{
       position:absolute;
@@ -186,7 +203,7 @@ box-shadow: 5px 5px 5px 0px #000000, inset 4px 4px 15px 0px #000000, 5px 5px 50p
       cursor: pointer;
       transition: .5s;
       font-weight: 400;
-      font-size: 17px;
+      font-size: 15px;
       border: 1px solid;
       font-family: inherit;
       text-transform: uppercase;
@@ -207,16 +224,11 @@ box-shadow: -10px 0px 13px -7px #000000, 10px 0px 13px -7px #000000, 5px 5px 50p
       margin-top: 1px;
       border-radius: 10px;
       color: #fff;
-      
       text-align: justify;
       background:none;
       transition: all 0.8s ease;
-      
-    
     }
-   
   }
-    
   .burguer {
     @media (min-width: 600px) {
       display:none; 
@@ -249,16 +261,12 @@ const BgDiv = styled.div`
     height: 2000%;
     overflow: hidden;
 
-    &.active:target {
-      display: none;
-    }
-
     a {
       position: absolute;
       width: 100%;
       height: 100%;
     }
-    @media (min-width: 760px) {
+    @media (min-width: 600px) {
       border-radius: none;
       width: 0%;
       height: 0%;
