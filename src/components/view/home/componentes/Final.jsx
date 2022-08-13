@@ -1,5 +1,4 @@
 import React from "react";
-import { BsFillArrowRightSquareFill } from "react-icons/bs";
 import "./stylecomponentes/iniciohome.css";
 function Final({
   fondo1,
@@ -67,7 +66,7 @@ function Final({
             </div>
           </div>
         </div>
-        
+
       </div>
     </div>
   );
