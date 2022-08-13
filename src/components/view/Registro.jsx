@@ -83,7 +83,7 @@ const Registro = (props) => {
     <div className="container my-5">
       <div className="row justify-content-center">
         <div
-          className="col-11 col-sm-8 col-md-6 col-xl-6 rounded"
+          className="contenedortodo col-11 col-sm-8 col-md-6 col-xl-6 rounded"
           style={{backgroundColor: "#e7f6a8",
             borderStyle: "solid",
             borderWidth: "1px",
