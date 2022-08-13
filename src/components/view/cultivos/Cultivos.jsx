@@ -7,7 +7,7 @@ import Album from "./componentes/Album";
 const Cultivos = (props) => {
   useEffect(() => {
     if (auth.currentUser) {
-      console.log("ok");
+      console.log("✔");
     } else {
       props.history.push("/login");
     }

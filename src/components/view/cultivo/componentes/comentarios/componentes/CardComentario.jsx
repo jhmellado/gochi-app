@@ -35,14 +35,18 @@ const CardComentario = (props) => {
       setModoRespuesta(true);
     }
   };
+
+  const obtenerComentarios = () => {
+    props.obtenerComentarios();
+  };
+
   const eliminarComentario = () => {
     db.collection("comentarios_cultivos")
       .doc(props.cultivo)
       .collection("comentarios")
       .doc(props.cid)
       .delete();
-    console.log("eliminado");
-    props.obtenerComentarios();
+    obtenerComentarios();
   };
 
   useEffect(() => {

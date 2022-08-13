@@ -27,7 +27,7 @@ const Cultivo = (props) => {
   const obtenerDatos = useCallback(
     async (e) => {
       const data = await fetch(
-        `http://0b993829-ecd8-4c41-b93f-032c40fcb786.clouding.host:3000/cultivos/${props.id}`
+        `http://a0f8ad0f-c3e0-4ad1-b6e5-b9cd87a74995.clouding.host:3000/cultivos/${props.id}`
       );
       const users = await data.json();
       setCultivo(users);
@@ -204,7 +204,7 @@ const Cultivo = (props) => {
       <div className="row">
         <div className="col-md-8">
           <article className="blog-post">
-            {(cultivo.cul_categoria_go !== "Flores" &&
+            {(cultivo.cul_categoria_go !== "Florales" &&
             cultivo.cul_categoria_go !== "Suculentas") &&
             cultivo.cul_categoria_go !== "Aromaticas" ? (
               <InfoNutricional
