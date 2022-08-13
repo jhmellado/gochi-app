@@ -53,11 +53,9 @@ const Login = (props) => {
       auth
         .signInWithEmailAndPassword(email, contrasena)
         .then((response) => {
-          //props.history.push('/userprofile')
           setContrasena("");
           setEmail("");
           setError(null);
-          console.log(response.user.email);
           props.history.push("/userprofile");
           props.history.go(0);
         })

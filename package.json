@@ -14,6 +14,10 @@
     "react-bootstrap-validation": "^0.1.11",
     "react-dom": "^18.0.0",
     "react-icons": "^4.4.0",
+<<<<<<< HEAD
+=======
+    "react-lazy-load-image-component": "^1.5.5",
+>>>>>>> b30e77360eb8fb23b2b933d607587cca5ef4a6f2
     "react-router": "^5.2.0",
     "react-router-dom": "^5.2.0",
     "react-scripts": "5.0.1",

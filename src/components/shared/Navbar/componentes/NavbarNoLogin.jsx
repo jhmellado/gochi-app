@@ -1,5 +1,8 @@
 import React, { useState } from "react";
 import { RiPlantFill, RiTeamLine } from "react-icons/ri";
+import { RiInstagramFill } from "react-icons/ri";
+import { ImFacebook2 } from "react-icons/im";
+import { FaTwitterSquare } from "react-icons/fa";
 
 /*import "bootstrap/dist/js/bootstrap.bundle.min.js"
 import 'bootstrap/dist/css/bootstrap.min.css'*/
@@ -42,8 +45,11 @@ function NavbarNoLogin({ name }) {
           </a>
           <a className="btn-registro" href="/registro">
             Registrarse
+            
           </a>
+          <FaTwitterSquare className="miicons redtwitter"/>   
         </div>
+        
         <div className="burguer">
           <BurguerButton clicked={clicked} handleClick={handleClick} />
         </div>
@@ -134,9 +140,17 @@ const NavContainer = styled.nav`
       justify-content: center ;
       float: left;
       align-items: center;
-      
-      
     }
+    .redtwitter{
+      position: absolute;
+      display:block;
+      left: 14em;
+      width: 3em;
+      height: 3em;
+      top:30rem;
+      background-color: red;
+    }
+   
 
     .btn-estilo{
       --color: #black;

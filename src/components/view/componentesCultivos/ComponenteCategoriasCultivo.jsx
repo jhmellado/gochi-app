@@ -10,11 +10,11 @@ const ComponenteCategoriasCultivo = (props) => {
  
   useEffect(() => {
     document.title = "Gochi - Cultivos"
-    obtenerDatos()
+    obtenerDatos();
   }, []);
 
   const obtenerDatos = async () => {
-    const data = await fetch('http://0b993829-ecd8-4c41-b93f-032c40fcb786.clouding.host:3000/categorias/')
+    const data = await fetch('http://a0f8ad0f-c3e0-4ad1-b6e5-b9cd87a74995.clouding.host:3000/categorias/')
     const users = await data.json()
     setCategorias(users["docs"])
 }

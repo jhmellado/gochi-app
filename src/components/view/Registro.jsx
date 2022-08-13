@@ -13,6 +13,7 @@ const Registro = (props) => {
     document.title = "Gochi - Registro";
   }, []);
 
+  const [username, setUsername] = useState("");
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
   const [email, setEmail] = useState("");
@@ -35,16 +36,33 @@ const Registro = (props) => {
       return;
     }
     setError(null);
-    registrar();
+    registrarFirebase();
   };
 
-  const registrar = React.useCallback(async () => {
+  const registrarFirebase = React.useCallback(async () => {
     try {
       const res = await auth.createUserWithEmailAndPassword(email, contrasena);
       await db.collection("usuarios").doc(res.user.uid).set({
+        username: username,
         uid: res.user.uid,
+        displayName: nombre+' '+apellido,
         email: res.user.email,
+        img_profile: '',
+        about_me: '',
+        instagram: {
+          exist: false,
+          url: "",
+        },
+        facebook: {
+          exist: false,
+          url: "",
+        },
+        youtube: {
+          exist: false,
+          url: "",
+        },
       });
+      
       setContrasena("");
       setEmail("");
       setError(null);
@@ -59,7 +77,7 @@ const Registro = (props) => {
         setError("Email ya utilizado");
       }
     }
-  }, [email, contrasena, props.history]);
+  }, [username, nombre, apellido, email, contrasena, props.history]);
 
   return (
     <div className="container my-5">
@@ -87,6 +105,7 @@ const Registro = (props) => {
             <p>
               <strong>Ingresa tus datos</strong>
             </p>
+            
             <div className="row g-3 mb-3">
               <div className="col-md">
                 <label
@@ -120,6 +139,22 @@ const Registro = (props) => {
                   value={apellido}
                 />
               </div>
+            </div>
+            <div className="col-md">
+              <label
+                htmlFor="username_form"
+                className="s-mb-1 s-weight-semibold small"
+              >
+                Nombre de usuario
+              </label>
+              <input
+                type="text"
+                className="form-control mb-3"
+                id="username_form"
+                placeholder="Ingresa tu nombre de usuario"
+                onChange={(event) => setUsername(event.target.value)}
+                value={username}
+              />
             </div>
             <div className="col-md">
               <label

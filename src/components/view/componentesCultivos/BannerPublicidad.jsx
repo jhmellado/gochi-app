@@ -25,13 +25,6 @@ const BannerPublicidad = () => {
               className="mw-100"/>
         </a>
       </li>
-      <li>
-        <a href = "https://composter.cl/optin1655139300604">
-          <img src="https://scontent.fccp1-1.fna.fbcdn.net/v/t39.30808-6/274922215_334375972074268_2492018962489622456_n.jpg?_nc_cat=104&ccb=1-7&_nc_sid=09cbfe&_nc_eui2=AeEBiZYZ6JFhRSXGRLz3bYWdHOvCczKb1Ncc68JzMpvU104i_GulydRrM_JhIfjzGTVFa7pWuVMXeWPjxc2GD4gS&_nc_ohc=sqz-6jQDu8YAX-lWRz1&tn=quf8TjN5yjJCT1Yq&_nc_ht=scontent.fccp1-1.fna&oh=00_AT-fhk_A0HgfzwL8fhcFfm7VKJl_BC16_jPlfPbrR1Ny8w&oe=62E7B109" 
-              alt="anasac" 
-              className="mw-100"/>
-        </a>
-      </li>
     </ul>
   </div>   
   )

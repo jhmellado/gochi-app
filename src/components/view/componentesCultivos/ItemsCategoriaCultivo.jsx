@@ -1,13 +1,15 @@
 import React from "react";
+import { LazyLoadImage } from "react-lazy-load-image-component";
 
 const ItemsCategoriaCultivo = (props) => {
   return (
     <div className="col pb-3">
       <div className="card shadow-sm">
-        <img
-          className="bd-placeholder-img card-img-top"
+        <LazyLoadImage
+          className={"bd-placeholder-img card-img-top"}
+          effect = "blur"
           src={props.imagen}
-          alt="gochi"
+          alt={"gochi"}
         />
         <div className="card-body">
           <p className="card-text">
