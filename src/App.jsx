@@ -8,7 +8,7 @@ import { Route, Switch, BrowserRouter } from "react-router-dom";
 import Nosotros from "./components/view/Nosotros";
 import Registro from "./components/view/Registro";
 import Footer from "./components/shared/Footer";
-import UserProfile from "./components/view/UserProfile";
+import UserProfile from "./components/view/userprofile/UserProfile";
 import Curso from "./components/view/curso/Curso";
 import CategoriaCultivos from "./components/view/CategoriaCultivos";
 import Cultivos from "./components/view/cultivos/Cultivos";
