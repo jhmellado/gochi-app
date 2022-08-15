@@ -8,11 +8,18 @@ const CardProfile = (props) => {
       <div className="card shadow">
         <img className="card-img" src={gochi} alt="gochi" />
         <div className="card-img-overlay">
-          <h4 className="card-text">{props.nombre}</h4>
-          <button type="button" className="btn btn-sm btn-light">
-            <RiPlantLine />
-            Ver
-          </button>
+          <div>
+            <h4 className="card-text text-center">{props.nombre}</h4>
+          </div>
+          <div>
+            <button
+              type="button"
+              className="btn btn-sm w-100 my-auto btn-light position-absolute bottom-0 start-0"
+            >
+              <RiPlantLine />
+              Ver
+            </button>
+          </div>
         </div>
       </div>
     </div>

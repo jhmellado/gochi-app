@@ -13,26 +13,26 @@ const Tabs = (props) => {
       <ul className="nav nav-tabs nav-justified mx-0">
         <li className="nav-item">
           <button
-            className={toggleState === 1 ? "nav-link active" : "nav-link"}
+            className={toggleState === 1 ? "nav-link active" : "nav-link link-secondary"}
             onClick={() => toggleTab(1)}
           >
-            Cultivos Favoritos
+            Cultivos
           </button>
         </li>
         <li className="nav-item" role="presentation">
           <button
-            className={toggleState === 2 ? "nav-link active" : "nav-link"}
+            className={toggleState === 2 ? "nav-link active" : "nav-link link-secondary"}
             onClick={() => toggleTab(2)}
           >
-            Mis GochiMedias
+            GochiMedias
           </button>
         </li>
         <li className="nav-item" role="presentation">
           <button
-            className={toggleState === 3 ? "nav-link active" : "nav-link"}
+            className={toggleState === 3 ? "nav-link active" : "nav-link link-secondary"}
             onClick={() => toggleTab(3)}
           >
-            Calendario de cultivos
+            Calendario
           </button>
         </li>
       </ul>
@@ -40,7 +40,7 @@ const Tabs = (props) => {
       <div className="tab-content">
         {toggleState === 1 ? (
           <div className="fade show active">
-            <div className="album py-5 bg-white">
+            <div className="album pt-3 bg-white">
               <div className="container">
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <CardProfile nombre ={'cultivo'}/>
@@ -60,7 +60,7 @@ const Tabs = (props) => {
         ) : null}
         {toggleState === 2 ? (
           <div className="fade show active">
-            <div className="album py-5 bg-white">
+            <div className="album pt-3 bg-white">
               <div className="container">
                 <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
                     <CardProfile nombre={'gochimedia'}/>
@@ -80,7 +80,7 @@ const Tabs = (props) => {
         {toggleState === 3 ? (
           <div className=" fade show active">
             <img src="https://easyjardin.cl/wp-content/uploads/2016/02/tabla02-1-1024x806.png"
-                className="img-fluid" 
+                className="img-fluid py-3" 
                  alt="calendario siembra" />
           </div>
         ) : null}
