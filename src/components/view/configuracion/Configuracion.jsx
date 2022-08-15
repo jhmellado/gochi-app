@@ -82,16 +82,16 @@ const Configuracion = (props) => {
         </div>
         <div className="col-12 col-md-8 border px-0 bg-white">
       {toggleState === 1 ? (
-          <MiPerfil/>
+          <MiPerfil usuario={props.usuario}/>
         ) : null}
         {toggleState === 2 ? (
-          <ImagenPerfil/>
+          <ImagenPerfil usuario={props.usuario}/>
         ) : null}
         {toggleState === 3 ? (
-          <RedesSociales/>
+          <RedesSociales usuario={props.usuario}/>
         ) : null}
         {toggleState === 4 ? (
-          <Seguridad/>
+          <Seguridad usuario={props.usuario}/>
         ) : null}
       </div>
       </div>
