@@ -57,7 +57,7 @@ const MiPerfil = () => {
         </div>
       </div>
       <hr />
-      <div className="container">
+      <div className="container py-5">
         <div className="d-flex row justify-content-center">
           <div className="col-12 col-md-6 px-0">
             <div className="container">
