@@ -83,17 +83,7 @@ const NavbarLogin = (props) => {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href="/">
-                    Mis Cultivos
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/">
-                    Mis Cursos
-                  </a>
-                </li>
-                <li>
-                  <a className="dropdown-item" href="/">
+                  <a className="dropdown-item" href={`/configuracion/${auth.currentUser.uid}`}>
                     Configuración
                   </a>
                 </li>

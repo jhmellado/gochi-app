@@ -21,6 +21,7 @@ import { useEffect } from "react";
 import TerminosCondiciones from "./components/view/TerminosCondiciones";
 import ResetPassword from "./components/view/ResetPassword";
 import Cargando from "./components/component/Cargando";
+import Configuracion from "./components/view/configuracion/Configuracion";
 
 function App() {
   const [firebaseUser, setFirebaseUser] = useState(false);
@@ -88,6 +89,12 @@ function App() {
           path="/cultivo/:name/:id"
           render={({ match }) => {
             return <Cultivo usuario ={firebaseUser} id={match.params.id} name={match.params.name} />;
+          }}
+        />
+        <Route
+          path="/configuracion/:id"
+          render={({ match }) => {
+            return <Configuracion usuario ={firebaseUser} id={match.params.id}/>;
           }}
         />
       </Switch>

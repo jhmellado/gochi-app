@@ -17,8 +17,8 @@ const UserProfile = (props) => {
   return props.usuario !== false ? (
     <div className="container my-4">
       <div className="row">
-        <div className="col-lg-4">
-          <div className="card">
+        <div className="col-lg-4 mb-3">
+          <div className="card" style={{borderRadius: "0px"}}>
             <div className="card-body container">
               <div className="d-flex row justify-content-around justify-content-lg-center">
                 <div className="col-4 col-lg-5 my-auto">
@@ -32,7 +32,7 @@ const UserProfile = (props) => {
                     alt={props.usuario.username}
                   />
                 </div>
-                <div className="col-4 col-lg-6 my-auto">
+                <div className="col-5 col-lg-6 my-auto">
                   <div><strong>{props.usuario.displayName}</strong></div>
                   <div>{props.usuario.username}</div>
                   <div>{props.usuario.email}</div>
@@ -60,14 +60,13 @@ const UserProfile = (props) => {
                 <div className="col-10 my-auto">
                   <div className="small">{props.usuario.about_me}</div>
                 </div>
-                
               </div>
             </div>
 
           </div>
         </div>
         <div className="col-lg-8">
-          <div className="card">
+          <div className="card" style={{borderRadius: "0px"}}>
             <div className="card-body">
               <Tabs/>
             </div>
