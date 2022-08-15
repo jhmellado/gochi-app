@@ -23,6 +23,7 @@ import ResetPassword from "./components/view/ResetPassword";
 import Cargando from "./components/component/Cargando";
 import Configuracion from "./components/view/configuracion/Configuracion";
 
+
 function App() {
   const [firebaseUser, setFirebaseUser] = useState(false);
   
@@ -97,6 +98,7 @@ function App() {
             return <Configuracion usuario ={firebaseUser} id={match.params.id}/>;
           }}
         />
+        
       </Switch>
       <Footer />
     </BrowserRouter>

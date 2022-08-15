@@ -19,9 +19,9 @@ const Configuracion = (props) => {
           <div className="container text-center">
             <div className="d-flex row justify-content-around justify-content-lg-center">
               <div className="col-5 my-auto">
-                <div>
+                <div className="mt-4">
                   <img
-                    className="img-fluid mt-3 rounded-circle"
+                    className="img-fluid rounded-circle"
                     src={
                       props.usuario.img_profile !== ""
                         ? props.usuario.img_profile
@@ -34,7 +34,8 @@ const Configuracion = (props) => {
               </div>
             </div>
           </div>
-          <div className="container mt-5">
+          <hr/>
+          <div className="container">
             <div className="d-flex row justify-content-center">
               <div className="col my-auto px-0 mb-3">
                 <ul className="nav">
@@ -79,8 +80,7 @@ const Configuracion = (props) => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="col-12 col-md-8">
+        <div className="col-12 col-md-8 border px-0 bg-white">
       {toggleState === 1 ? (
           <MiPerfil/>
         ) : null}
@@ -94,6 +94,8 @@ const Configuracion = (props) => {
           <Seguridad/>
         ) : null}
       </div>
+      </div>
+   
     </div>
   );
 };
