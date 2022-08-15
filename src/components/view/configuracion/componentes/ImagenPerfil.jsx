@@ -50,7 +50,7 @@ const ImagenPerfil = (props) => {
                           type="text"
                           className="img-fluid"
                           id="nombre_form"
-                          src={apellido !== "" ? (apellido):("https://img-c.udemycdn.com/user/200_H/anonymous_3.png")}
+                          src={"https://img-c.udemycdn.com/user/200_H/anonymous_3.png"}
                         />
                       </div>
                     </div>
