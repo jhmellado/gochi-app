@@ -1,18 +1,82 @@
 import React, { useState } from "react";
+import { auth, storage,firebase} from "../../../../firebase";
 
 const ImagenPerfil = (props) => {
   const [error, setError] = useState(null);
-  const [apellido, setApellido] = useState("");
+  const [imagenInput, setImagenInput] = useState("");
 
   const procesarApellido = (event) => {
     event.preventDefault();
-    if (!apellido.trim()) {
+    if (!imagenInput.trim()) {
       setError("Ingrese su apellido");
       return;
     }
     setError(null);
   };
 
+  const imagenPrevia = (imagen) => {
+    var storageRef = storage.ref();
+    var listRef = storageRef.child("vista_previa/"+auth.currentUser.uid);
+    listRef.listAll()
+    .then((res) => {
+      res.items.forEach((itemRef) => {
+        var desertRef = storageRef.child("vista_previa/"+auth.currentUser.uid+'/'+itemRef.name);
+        desertRef.delete().then(() => {
+          console.log('File deleted successfully');
+        }).catch((error) => {
+          console.log(error);
+        });
+      });
+    }).catch((error) => {
+        console.log(error);
+    });
+    var imagenRef = storageRef
+      .child("vista_previa/"+auth.currentUser.uid+'/'+imagen.name)
+      .put(imagen);
+    imagenRef.on('state_changed', (snapshot) => {
+      var progress = (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
+      console.log("Upload is " + progress + "% done");
+      switch (snapshot.state) {
+        default:
+          console.log('Algo anda mal')
+          break;
+        case firebase.storage.TaskState.PAUSED:
+          console.log("Upload is paused");
+          break;
+        case firebase.storage.TaskState.RUNNING:
+          console.log("Upload is running");
+          break;
+      }
+    },
+    (error) => {
+      switch (error.code) {
+        default:
+          console.log('Algo anda mal')
+          break;
+        case 'storage/unauthorized':
+          console.log(error.message)
+          // ('User doesn't have permission to access the object')
+          break;
+        case 'storage/canceled':
+          console.log(error.message)
+          // User canceled the upload
+          break;
+  
+        // ...
+  
+        case 'storage/unknown':
+          console.log(error.message)
+          // Unknown error occurred, inspect error.serverResponse
+          break;
+      }
+    },
+    () => {
+      imagenRef.snapshot.ref.getDownloadURL().then((downloadURL) => {
+        console.log('File available at', downloadURL);
+        setImagenInput(downloadURL);
+      });
+    });
+  };
 
   return (
     <div>
@@ -50,7 +114,12 @@ const ImagenPerfil = (props) => {
                           type="text"
                           className="img-fluid"
                           id="nombre_form"
-                          src={"https://img-c.udemycdn.com/user/200_H/anonymous_3.png"}
+                          alt="vista_previa"
+                          src={
+                            imagenInput !== ""
+                              ? imagenInput
+                              : "https://img-c.udemycdn.com/user/200_H/anonymous_3.png"
+                          }
                         />
                       </div>
                     </div>
@@ -73,8 +142,7 @@ const ImagenPerfil = (props) => {
                       className="form-control"
                       id="file_form"
                       accept=".jpg,.jpeg,.png"
-                      onChange={(event) => setApellido(event.target.value)}
-                      value={apellido}
+                      onChange={(event) => imagenPrevia(event.target.files[0])}
                     />
                   </div>
                 </div>
