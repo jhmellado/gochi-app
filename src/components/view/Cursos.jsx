@@ -14,7 +14,7 @@ const Cursos = (props) => {
     document.title = "Gochi - Cursos";
   }, [props.history]);
 
-  return <div>Cursos</div>;
+  return (<div>Cursos V1</div>);
 };
 
 export default withRouter(Cursos);
