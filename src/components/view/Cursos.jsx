@@ -3,7 +3,6 @@ import { useEffect } from "react";
 import { withRouter } from "react-router";
 import { auth } from "../../firebase";
 
-
 const Cursos = (props) => {
   useEffect(() => {
     if (auth.currentUser) {
@@ -14,7 +13,7 @@ const Cursos = (props) => {
     document.title = "Gochi - Cursos";
   }, [props.history]);
 
-  return (<div>Cursos V1</div>);
+  return <div>Cursos V1</div>;
 };
 
 export default withRouter(Cursos);
