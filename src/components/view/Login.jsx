@@ -4,7 +4,7 @@ import "../../../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js";
 import "bootstrap/dist/css/bootstrap.min.css";
 import gochi_logo from "../../assets/img/gochi_logo_sf.svg";
 import { useState } from "react";
-import { auth, firebase } from "../../firebase";
+import { auth, db, firebase } from "../../firebase";
 import { withRouter } from "react-router-dom";
 import { useCallback } from "react";
 
@@ -38,11 +38,54 @@ const Login = (props) => {
 
   const iniciarSesionGoogle = useCallback(async () => {
     try {
-      const provider = new firebase.auth.GoogleAuthProvider();
-      const res = await auth.signInWithPopup(provider);
-      console.log(res)
-      props.history.push("/userprofile");
-      props.history.go(0);
+      auth
+        .signInWithPopup(new firebase.auth.GoogleAuthProvider())
+        .then((res) => {
+          console.log(res.user);
+          db.collection("usuarios")
+            .doc(res.user.uid)
+            .get()
+            .then((doc) => {
+              if (doc.exists) {
+                console.log("Existe!", doc.data());
+              } else {
+                // doc.data() will be undefined in this case
+                console.log("No existe!");
+                db.collection("usuarios")
+                  .doc(res.user.uid)
+                  .set({
+                    username: res.user.displayName,
+                    uid: res.user.uid,
+                    displayName: res.user.displayName,
+                    email: res.user.email,
+                    img_profile: res.user.photoURL,
+                    about_me: "",
+                    instagram: {
+                      exist: false,
+                      url: "",
+                    },
+                    facebook: {
+                      exist: false,
+                      url: "",
+                    },
+                    youtube: {
+                      exist: false,
+                      url: "",
+                    },
+                  });
+              }
+            })
+            .catch((error) => {
+              console.log("Error getting document:", error);
+            });
+        })
+        .then(() => {
+          props.history.push("/userprofile");
+          props.history.go(0);
+        })
+        .catch((error) => {
+          console.log(error);
+        });
     } catch (error) {
       console.log(error);
     }
@@ -191,10 +234,7 @@ const Login = (props) => {
                 value={contrasena}
               />
             </div>
-            <button
-              className="w-100 btn btn-secondary"
-              type="submit"
-            >
+            <button className="w-100 btn btn-secondary" type="submit">
               Iniciar Sesión
             </button>
             <p className="mb-3 text-muted text-center">
