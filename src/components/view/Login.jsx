@@ -48,6 +48,9 @@ const Login = (props) => {
             .then((doc) => {
               if (doc.exists) {
                 console.log("Existe!", doc.data());
+                console.log("ir a userprofile");
+                props.history.push("/userprofile");
+                props.history.go(0);
               } else {
                 // doc.data() will be undefined in this case
                 console.log("No existe!");
@@ -72,17 +75,16 @@ const Login = (props) => {
                       exist: false,
                       url: "",
                     },
+                  })
+                  .then((res) => {
+                    props.history.push("/userprofile");
+                    props.history.go(0);
                   });
               }
             })
             .catch((error) => {
               console.log("Error getting document:", error);
             });
-        })
-        .then(() => {
-          console.log('ir a userprofile')
-         // props.history.push("/userprofile");
-          //props.history.go(0);
         })
         .catch((error) => {
           console.log(error);
