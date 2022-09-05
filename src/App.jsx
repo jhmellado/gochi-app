@@ -1,6 +1,6 @@
 import React from "react";
 import Home from "./components/view/home/Home";
-import Cursos from "./components/view/Cursos";
+import Cursos from "./components/view/cursos/Cursos";
 //import Contacto from "./components/view/Contacto"
 import Login from "./components/view/Login";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
@@ -74,8 +74,10 @@ function App() {
         <Route path="/cursos">
           <Cursos />
         </Route>
-        <Route path="/curso">
-          <Curso usuario ={firebaseUser} />
+        <Route path="/curso/:id"
+               render={({ match }) => {
+                return <Curso usuario ={firebaseUser} id={match.params.id}/>;
+              }}>
         </Route>
         <Route path="/categoria">
           <CategoriaCultivos />

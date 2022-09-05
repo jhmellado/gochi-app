@@ -31,29 +31,29 @@ const Acercade = (props) => {
                         <div className="col-2">
                         <img 
                             className="mw-100 rounded-circle"
-                            src={props.profile_img}
+                            src={props.instructor.url_profile_image}
                             alt="Profile"
                             />
                         </div>
                         <div className="col">
-                            <p className='mb-0'> <strong>{props.name}</strong></p>
-                            <p>{props.oficio}</p>
+                            <p className='mb-0'> <strong>{props.instructor.name}</strong></p>
+                            <p>{props.instructor.oficio}</p>
                         </div>
                     </div>
                     <div>
-                        <a href={props.url_perfil} target="_blank" rel="noreferrer">
+                        <a href={props.instructor.socialmedia[0].url_perfil} target="_blank" rel="noreferrer">
                         <img 
                             className='col pb-3'
                             width="7%"
                             height ="7%"
-                            src={props.url_image_social}
+                            src={props.instructor.socialmedia[0].url_image_social}
                             alt="Profile"
                             />
                         </a>
                     </div>
                     <div>
                         <p>
-                        Hola, soy bluuweb! ({props.name}) un canal en Youtube que trata de proporcionar la mejor energía para enseñar a programar, si estás listo para aprender no dudes en darme una oportunidad :)
+                        Hola, soy bluuweb! ({props.instructor.name}) un canal en Youtube que trata de proporcionar la mejor energía para enseñar a programar, si estás listo para aprender no dudes en darme una oportunidad :)
                         </p>
                     </div>
                 </div>  

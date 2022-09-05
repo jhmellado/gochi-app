@@ -80,8 +80,9 @@ const Login = (props) => {
             });
         })
         .then(() => {
-          props.history.push("/userprofile");
-          props.history.go(0);
+          console.log('ir a userprofile')
+         // props.history.push("/userprofile");
+          //props.history.go(0);
         })
         .catch((error) => {
           console.log(error);
