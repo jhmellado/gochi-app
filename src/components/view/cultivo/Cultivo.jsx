@@ -30,6 +30,7 @@ const Cultivo = (props) => {
         `http://a0f8ad0f-c3e0-4ad1-b6e5-b9cd87a74995.clouding.host:3000/cultivos/${props.id}`
       );
       const users = await data.json();
+      console.log(users.cul_info_nutricional_go.cul_beneficios_go);
       setCultivo(users);
       await db
         .collection("comentarios_cultivos")
@@ -198,7 +199,7 @@ const Cultivo = (props) => {
         imagen_banner={cultivo.cul_banner_go}
       />
       <InfoBeneContraCultivo
-        info_beneficios={cultivo.cul_beneficios_go}
+        info_beneficios={cultivo.cul_info_nutricional_go.cul_beneficios_go}
         info_contraindicaciones={cultivo.cul_contraindicaciones_go}
       />
       <div className="row">

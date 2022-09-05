@@ -1,6 +1,10 @@
 import React from "react";
 
 const InfoBeneCard = (props) => {
+  const data = props.info_beneficios;
+  const beneficios = data.map((beneficio, index) => 
+  <li key={index}><p>{beneficio.descripcion}</p></li> );
+
   return (
     <div className="col-md-6">
       <div className="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
@@ -8,10 +12,9 @@ const InfoBeneCard = (props) => {
           <strong className="d-inline-block mb-2 text-primary">World</strong>
           <h3 className="mb-0">Featured post</h3>
           <div className="mb-1 text-muted">Nov 12</div>
-          <p className="card-text mb-auto">
-            This is a wider card with supporting text below as a natural lead-in
-            to additional content.
-          </p>
+          <ul>
+            {beneficios}
+          </ul>
           <a href="/" className="stretched-link">
             Continue reading
           </a>
