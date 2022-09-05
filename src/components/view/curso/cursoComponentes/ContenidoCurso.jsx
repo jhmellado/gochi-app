@@ -3,7 +3,7 @@ import ListaSeccionCurso from './ListaSeccionCurso'
 
 const ContenidoCurso = (props) => {
   return (
-    <div>
+    <div className='container'>
         <div className="row bg-light">
           <p className='mt-3'><strong>Contenido del curso</strong></p>
           <hr className='px-0 my-0'/>

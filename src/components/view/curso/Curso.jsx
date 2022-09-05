@@ -33,7 +33,8 @@ const Curso = (props) => {
   }, [props.history, obtenerDatos]);
 
   return curso !== null ? (
-    <div className="row">
+    <div className="container">
+      <div className="row">
       <div className="col-lg-9">
         <div className="container">
           <div className="row embed-responsive embed-responsive-16by9">
@@ -55,6 +56,8 @@ const Curso = (props) => {
         <ContenidoCurso secciones={curso.reco_secciones_go} />
       </div>
     </div>
+    </div>
+    
   ) : (
     <Cargando />
   );
