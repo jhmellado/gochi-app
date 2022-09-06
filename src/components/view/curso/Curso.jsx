@@ -41,10 +41,13 @@ const Curso = (props) => {
             <div className="row embed-responsive embed-responsive-16by9">
               <Reproductor src={curso.reco_secciones_go[0].url} />
             </div>
+            <div className="row h2 py-2">
+              Curso: {curso.reco_name_go}
+            </div>
             <div className="row">
               <NavbarCurso />
             </div>
-            <div className="row">
+            <div className="row bg-white">
               <Acercade
                 about={curso.reco_about_go}
                 description={curso.reco_description_go}
