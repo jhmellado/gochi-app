@@ -13,13 +13,13 @@ function Final({
 }) {
   return (
     <div className="container px-4 py-5" id="custom-cards">
-      <h2 className="pb-2 border-bottom">Conoce sobre..</h2>
+    <h2 className="pb-2 border-bottom">Conoce sobre..</h2>
 
-      <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
-
+    <div className="row row-cols-1 row-cols-lg-3 align-items-stretch g-4 py-5">
+      
         <div className="col">
-          <div
-            className="shadow  card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
+          <div 
+            className="shadow card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
             style={{
               backgroundImage: `url(${fondo1})`,
               backgroundRepeat: "no-repeat",
@@ -28,11 +28,14 @@ function Final({
             }}
           >
             <div className="d-flex flex-column h-100 p-5 text-white text-shadow-1">
-              <h2 className="my-auto py-5 display-6 lh-1 fw-bold">{titulo1}</h2>
+               <h2 className="cardmover my-auto py-5 display-6 lh-1 fw-bold">
+               <a href={link1} style={{textDecoration:"none",color:"white" }}> {titulo1}</a>
+              </h2>
             </div>
           </div>
         </div>
-
+    
+      
         <div className="col">
           <div
             className="shadow card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
@@ -44,11 +47,14 @@ function Final({
             }}
           >
             <div className="d-flex flex-column h-100 p-5 text-white text-shadow-1">
-              <h2 className="my-auto py-5 display-6 lh-1 fw-bold">{titulo2}</h2>
+              <h2 className="cardmover my-auto py-5 display-6 lh-1 fw-bold">
+              <a href={link2} style={{textDecoration:"none",color:"white" }}> {titulo2}</a>
+              </h2>
             </div>
           </div>
         </div>
-
+    
+      
         <div className="col">
           <div
             className="shadow card card-cover h-100 overflow-hidden text-bg-dark rounded-4 shadow-lg"
@@ -60,15 +66,15 @@ function Final({
             }}
           >
             <div className="d-flex flex-column h-100 p-5  text-wrap">
-              <h2 className="my-auto py-5 display-6 lh-1 fw-bold ">
-                {titulo3}
+              <h2 className="cardmover my-auto py-5 display-6 lh-1 fw-bold ">
+              <a href={link3} style={{textDecoration:"none",color:"white" }}> {titulo3}</a>
               </h2>
             </div>
           </div>
         </div>
-
-      </div>
+      
     </div>
+  </div>
   );
 }
 
