@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { withRouter } from "react-router";
 import { db } from "../../../firebase";
 import { BiCommentAdd } from "react-icons/bi";
+import Login from "../Login";
 import Cargando from "../../component/Cargando";
 import Archivos from "./componentes/Archivos";
 import BannerPublicidad from "./componentes/BannerPublicidad";
@@ -152,32 +153,32 @@ const Cultivo = (props) => {
   };
 
   const updateComentarios = (event) => {
-    event.preventDefault();
-    if (!comentario.trim()) {
-      setError("El comentario no puede ir vacío");
-      return;
-    }
-    db.collection("comentarios_cultivos")
-      .doc(cultivo.cul_name_go)
-      .collection("comentarios")
-      .doc(props.usuario.uid + `${actualDateDB()}`)
-      .set({
-        uid: `${props.usuario.uid}`,
-        cid: props.usuario.uid + `${actualDateDB()}`,
-        comentario: true,
-        username: `${props.usuario.username}`,
-        imagen: `${
-          props.usuario.img_profile !== ""
-            ? props.usuario.img_profile
-            : "https://static.platzi.com/media/avatars/avatars/pabloerazo_1c128cb8-315f-4e4a-bfbc-c36aa60aee4b.jpg"
-        }`,
-        fecha: `${actualDate()}`,
-        date: `${date()}`,
-        texto: `${comentario}`,
-      });
-    obtenerComentarios();
-    setError(null);
-    setComentario("");
+    //event.preventDefault();
+      if (!comentario.trim()) {
+        setError("El comentario no puede ir vacío");
+        return;
+      }
+      db.collection("comentarios_cultivos")
+        .doc(cultivo.cul_name_go)
+        .collection("comentarios")
+        .doc(props.usuario.uid + `${actualDateDB()}`)
+        .set({
+          uid: `${props.usuario.uid}`,
+          cid: props.usuario.uid + `${actualDateDB()}`,
+          comentario: true,
+          username: `${props.usuario.username}`,
+          imagen: `${
+            props.usuario.img_profile !== ""
+              ? props.usuario.img_profile
+              : "https://static.platzi.com/media/avatars/avatars/pabloerazo_1c128cb8-315f-4e4a-bfbc-c36aa60aee4b.jpg"
+          }`,
+          fecha: `${actualDate()}`,
+          date: `${date()}`,
+          texto: `${comentario}`,
+        });
+      obtenerComentarios();
+      setError(null);
+      setComentario("");
   };
 
   useEffect(() => {
@@ -200,18 +201,20 @@ const Cultivo = (props) => {
       />
       <InfoBeneContraCultivo
         info_beneficios={cultivo.cul_info_nutricional_go.cul_beneficios_go}
-        info_contraindicaciones={cultivo.cul_info_nutricional_go.cul_contraindicaciones_go}
+        info_contraindicaciones={
+          cultivo.cul_info_nutricional_go.cul_contraindicaciones_go
+        }
       />
       <div className="row">
         <div className="col-md-8">
           <article className="blog-post">
-            {(cultivo.cul_categoria_go !== "Florales" &&
-            cultivo.cul_categoria_go !== "Suculentas") &&
+            {cultivo.cul_categoria_go !== "Florales" &&
+            cultivo.cul_categoria_go !== "Suculentas" &&
             cultivo.cul_categoria_go !== "Aromaticas" ? (
               <InfoNutricional
                 info_nutricional={cultivo.cul_info_nutricional_go}
               />
-            ) : (null)}
+            ) : null}
             <CuandoCultivar
               info_cuando_cultivar={cultivo.cul_cuando_cultivar_go}
             />
@@ -234,50 +237,105 @@ const Cultivo = (props) => {
               <div className="d-flex justify-content-start my-auto mx-2">
                 <div className="p-0">
                   <img
-                    className="rounded-circle"
+                    className="rounded-circle bg-light"
                     alt={props.usuario !== null ? props.usuario.username : ""}
                     src={
                       props.usuario !== null
                         ? props.usuario.img_profile
-                        : "https://static.platzi.com/media/avatars/avatars/pabloerazo_1c128cb8-315f-4e4a-bfbc-c36aa60aee4b.jpg"
+                        : "https://img-c.udemycdn.com/user/200_H/anonymous_3.png"
                     }
                     height="30"
                     width="30"
                   />
                 </div>
                 <div className="my-auto ms-2">
-                  <strong>{props.usuario !== null ? props.usuario.username : "Usuario Anónimo"}</strong>
+                  <strong>
+                    {props.usuario !== null
+                      ? props.usuario.username
+                      : "Usuario Anónimo"}
+                  </strong>
                 </div>
               </div>
             </div>
 
             <div className="card-body">
-              <form onSubmit={updateComentarios}>
-                <div className="mb-3">
-                  {error && <div className="alert alert-danger">{error}</div>}
-                  <label
-                    htmlFor="exampleFormControlTextarea1"
-                    className="form-label"
-                  >
-                    Ingrese su comentario, sea respetuoso 😊
-                  </label>
-                  <textarea
-                    className="form-control"
-                    placeholder="Escriba su comentario..."
-                    id="exampleFormControlTextarea1"
-                    rows="1"
-                    onChange={(event) => setComentario(event.target.value)}
-                    value={comentario}
-                  ></textarea>
-                </div>
+              <div className="mb-3">
+                {error && <div className="alert alert-danger">{error}</div>}
+                <label
+                  htmlFor="exampleFormControlTextarea1"
+                  className="form-label"
+                >
+                  Ingrese su comentario, sea respetuoso 😊
+                </label>
+                <textarea
+                  className="form-control"
+                  placeholder="Escriba su comentario..."
+                  id="exampleFormControlTextarea1"
+                  rows="1"
+                  onChange={(event) => setComentario(event.target.value)}
+                  value={comentario}
+                ></textarea>
+              </div>
+              {props.usuario !== null ? (
                 <button
-                  type="submit"
+                  type="button"
                   className="btn btn-primary py-0 float-end"
+                  onClick={() => updateComentarios()}
                 >
                   <BiCommentAdd className="me-1" />
                   Comentar
                 </button>
-              </form>
+              ) : (
+                <div>
+                  <button
+                    type="button"
+                    className="btn btn-primary py-0 float-end"
+                    data-bs-toggle="modal"
+                    data-bs-target="#exampleModal"
+                  >
+                    <BiCommentAdd className="me-1" />
+                    Comentar
+                  </button>
+                  <div
+                    className="modal fade"
+                    id="exampleModal"
+                    tabIndex="-1"
+                    aria-labelledby="exampleModalLabel"
+                    aria-hidden="true"
+                  >
+                    <div className="modal-dialog">
+                      <div className="modal-content">
+                        <div className="modal-header">
+                          <h5 className="modal-title" id="exampleModalLabel">
+                            Inicia Sesión o Registrate
+                          </h5>
+                          <button
+                            type="button"
+                            className="btn-close"
+                            data-bs-dismiss="modal"
+                            aria-label="Close"
+                          ></button>
+                        </div>
+                        <div className="modal-body">
+                          <Login/>
+                        </div>
+                        <div className="modal-footer">
+                          <button
+                            type="button"
+                            className="btn btn-secondary"
+                            data-bs-dismiss="modal"
+                          >
+                            Close
+                          </button>
+                          <button type="button" className="btn btn-primary">
+                            Save changes
+                          </button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              )}
             </div>
           </div>
           {listacomentarios.length > 0 ? (
