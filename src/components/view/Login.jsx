@@ -47,13 +47,9 @@ const Login = (props) => {
             .get()
             .then((doc) => {
               if (doc.exists) {
-                console.log("Existe!", doc.data());
-                console.log("ir a userprofile");
                 props.history.push("/userprofile");
                 props.history.go(0);
               } else {
-                // doc.data() will be undefined in this case
-                console.log("No existe!");
                 db.collection("usuarios")
                   .doc(res.user.uid)
                   .set({
