@@ -5,6 +5,10 @@ import Cursos from "./components/view/cursos/Cursos";
 import Login from "./components/view/Login";
 import { Route, Switch, BrowserRouter } from "react-router-dom";
 
+import PlantasInfo from "./components/view/home/componentes/componenteinforhome/PlantasInfo";
+import ArticuloUno from "./components/view/home/componentes/componenteinforhome/ArticuloUno";
+import ArticuloDos from "./components/view/home/componentes/componenteinforhome/ArticuloDos";
+
 import Nosotros from "./components/view/Nosotros";
 import Registro from "./components/view/Registro";
 import Footer from "./components/shared/Footer";
@@ -52,6 +56,15 @@ function App() {
       <Switch>
         <Route path="/" exact>
           <Home />
+        </Route>
+        <Route path="/plantas">
+          <PlantasInfo />
+        </Route>
+        <Route path="/articulouno">
+          <ArticuloUno />
+        </Route>
+        <Route path="/articulodos">
+          <ArticuloDos />
         </Route>
         <Route path="/login">
           <Login />
