@@ -66,7 +66,7 @@ const NavbarLogin = (props) => {
                 aria-expanded="false"
               >
                 <img
-                  src={gochi_logo}
+                  src={props.user.img_profile}
                   alt="mdo"
                   width="32"
                   height="32"

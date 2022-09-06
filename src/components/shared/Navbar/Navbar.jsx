@@ -14,7 +14,7 @@ const Navbar = (props) => {
         }
     },[props])
   return (
-    user?(<NavbarLogin/>):(<NavbarNoLogin/>)
+    user?(<NavbarLogin user = {props.firebaseuser}/>):(<NavbarNoLogin/>)
   )
 }
 
