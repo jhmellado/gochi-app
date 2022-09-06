@@ -9,16 +9,16 @@ import { LazyLoadComponent } from "react-lazy-load-image-component";
 
 const CategoriaCultivos = (props) => {
   useEffect(() => {
-    if (auth.currentUser) {
+    /*if (auth.currentUser) {
       console.log("ok");
     } else {
       //console.log(auth.currentUser);
       props.history.push("/login");
-    }
+    }*/
     document.title = "Gochi - Categorías";
   }, [props.history]);
 
-  return auth.currentUser !== null ? (
+  return (
     <div>
       <EncabezadoCultivo />
       <hr className="divider" />
@@ -29,8 +29,6 @@ const CategoriaCultivos = (props) => {
         <BannerPublicidad />
       </div>
     </div>
-  ) : (
-    <Cargando />
   );
 };
 
