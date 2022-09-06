@@ -47,8 +47,12 @@ const Login = (props) => {
             .get()
             .then((doc) => {
               if (doc.exists) {
-                props.history.push("/userprofile");
-                props.history.go(0);
+                if (props.userprofile) {
+                  props.history.push("/userprofile");
+                  props.history.go(0);
+                } else {
+                  props.history.go(0);
+                }
               } else {
                 db.collection("usuarios")
                   .doc(res.user.uid)
@@ -73,8 +77,12 @@ const Login = (props) => {
                     },
                   })
                   .then((res) => {
-                    props.history.push("/userprofile");
-                    props.history.go(0);
+                    if (props.userprofile) {
+                      props.history.push("/userprofile");
+                      props.history.go(0);
+                    } else {
+                      props.history.go(0);
+                    }
                   });
               }
             })
@@ -98,8 +106,12 @@ const Login = (props) => {
           setContrasena("");
           setEmail("");
           setError(null);
-          props.history.push("/userprofile");
-          props.history.go(0);
+          if (props.userprofile) {
+            props.history.push("/userprofile");
+            props.history.go(0);
+          } else {
+            props.history.go(0);
+          }
         })
         .catch((error) => {
           console.log(error);
@@ -127,43 +139,36 @@ const Login = (props) => {
   }, [email, contrasena, props.history]);
 
   return (
-    <div className="container my-5">
-    <div className="row justify-content-center">
-      <div
-        className="contenedortodo col-11 col-sm-8 col-md-6 col-xl-4 mb-4 rounded"
-        style={{
-          backgroundColor: "#e7f6a8",
-          borderStyle: "solid",
-          borderWidth: "1px",
-          borderColor: "#293800",
-        }}
-      >
-        <div>
-          <img
-            className="mx-auto py-0 d-block"
-            src={gochi_logo}
-            alt="gochi_logo"
-            width="30%"
-            height="30%"
-          />
-        </div>
+    <div className={`container my-${props.my}`}>
+      <div className="row justify-content-center">
+        <div
+          className={`${props.contenedor}`}
+          style={{
+            backgroundColor: "#e7f6a8",
+            borderStyle: "solid",
+            borderWidth: "1px",
+            borderColor: "#293800",
+          }}
+        >
+          <div>
+            <img
+              className="mx-auto py-0 d-block"
+              src={gochi_logo}
+              alt="gochi_logo"
+              width="30%"
+              height="30%"
+            />
+          </div>
 
-        <h1 className="h2 mb-4 text-center">Inicia Sesión</h1>
-        <div>
-          <p>
-            <strong>Usa tu cuenta de Google</strong>
-          </p>
-<div className="">
-          <button
-            type="button"
-            className="btn btn-secondary container"
-            onClick={() => iniciarSesionGoogle()}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              width="7%"
-              height="7%"
-              viewBox="0 0 184 184"
+          <h1 className="h2 mb-4 text-center">Inicia Sesión</h1>
+          <div>
+            <p>
+              <strong>Usa tu cuenta de Google</strong>
+            </p>
+            <button
+              type="button"
+              className="btn btn-secondary w-100"
+              onClick={() => iniciarSesionGoogle()}
             >
               <path
                 d="M40.778,199.771l-6.4,23.91-23.409.5a92.161,92.161,0,0,1-.677-85.909h.005l20.841,3.821,9.13,20.716a54.906,54.906,0,0,0,.516,36.967Z"
