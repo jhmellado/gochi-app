@@ -7,10 +7,9 @@ import Cargando from "../../component/Cargando";
 import CardCurso from "./componentes/CardCurso";
 
 const Cursos = (props) => {
-
   const [recopilations, setRecopilations] = useState([]);
 
-  useEffect(() =>  {
+  useEffect(() => {
     if (auth.currentUser) {
       console.log(auth.currentUser);
     } else {
@@ -21,33 +20,45 @@ const Cursos = (props) => {
   }, [props.history]);
 
   const obtenerDatos = async () => {
-    const data = await fetch('http://a0f8ad0f-c3e0-4ad1-b6e5-b9cd87a74995.clouding.host:3000/recopilations')
-    const users = await data.json()
+    const data = await fetch(
+      "http://a0f8ad0f-c3e0-4ad1-b6e5-b9cd87a74995.clouding.host:3000/recopilations"
+    );
+    const users = await data.json();
     console.table(users.docs);
     setRecopilations(users.docs);
-}
+  };
 
-const recopilaciones = recopilations.map((recopilacion, index)=>
-    <CardCurso key = {index} 
-               id = {recopilacion._id}
-               name = {recopilacion.reco_name_go}
-               imagen = {recopilacion.reco_imagen_go}
-               description = {recopilacion.reco_description_go}
-               />
+  const recopilaciones = recopilations.map((recopilacion, index) => (
+    <CardCurso
+      key={index}
+      id={recopilacion._id}
+      name={recopilacion.reco_name_go}
+      imagen={recopilacion.reco_imagen_go}
+      description={recopilacion.reco_description_go}
+    />
+  ));
+
+  return auth.currentUser !== null ? (
+    <div>
+      <div className="container">
+        <div className="row justify-content-center">
+          <img
+            src="https://firebasestorage.googleapis.com/v0/b/gochi-69162.appspot.com/o/logos%2Fbanner_cursos.jpg?alt=media&token=effd7d3d-df87-4283-9043-21ab59a39d81"
+            alt={""}
+          />
+        </div>
+      </div>
+      <div className="album pt-3 bg-white">
+        <div className="container">
+          <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            {recopilaciones}
+          </div>
+        </div>
+      </div>
+    </div>
+  ) : (
+    <Cargando />
   );
-
-  return auth.currentUser !== null ?(
-  <div>
-    <div className="container"> Cursos V1</div>
-    <div className="album pt-3 bg-white">
-              <div className="container">
-                <div className="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
-                    {recopilaciones}
-                </div>
-              </div>
-            </div>
-   
-  </div>):(<Cargando/>);
 };
- 
+
 export default withRouter(Cursos);
