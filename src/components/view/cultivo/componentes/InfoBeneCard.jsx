@@ -1,7 +1,7 @@
 import React from "react";
 
 const InfoBeneCard = (props) => {
-  const data = props.info_beneficios;
+  let data = props.info_beneficios;
   const beneficios = data.map((beneficio, index) => 
   <li key={index}><p>{beneficio.descripcion}</p></li> );
 

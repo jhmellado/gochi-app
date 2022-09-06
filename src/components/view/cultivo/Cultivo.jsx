@@ -19,7 +19,7 @@ import Plagas from "./componentes/Plagas";
 import { useCallback } from "react";
 
 const Cultivo = (props) => {
-  const [cultivo, setCultivo] = useState([]);
+  const [cultivo, setCultivo] = useState(null);
   const [listacomentarios, setListaComentarios] = useState([]);
   const [comentario, setComentario] = useState("");
   const [error, setError] = useState(null);
@@ -30,7 +30,6 @@ const Cultivo = (props) => {
         `http://a0f8ad0f-c3e0-4ad1-b6e5-b9cd87a74995.clouding.host:3000/cultivos/${props.id}`
       );
       const users = await data.json();
-      console.log(users.cul_info_nutricional_go.cul_beneficios_go);
       setCultivo(users);
       await db
         .collection("comentarios_cultivos")
@@ -190,7 +189,7 @@ const Cultivo = (props) => {
     document.title = `Gochi - ${props.name}`;
   }, [props, obtenerDatos]);
 
-  return props.usuario !== null ? (
+  return cultivo !== null ? (
     <div className="container">
       <EncabezadoCultivo
         nombre={cultivo.cul_name_go}
@@ -200,7 +199,7 @@ const Cultivo = (props) => {
       />
       <InfoBeneContraCultivo
         info_beneficios={cultivo.cul_info_nutricional_go.cul_beneficios_go}
-        info_contraindicaciones={cultivo.cul_contraindicaciones_go}
+        info_contraindicaciones={cultivo.cul_info_nutricional_go.cul_contraindicaciones_go}
       />
       <div className="row">
         <div className="col-md-8">
