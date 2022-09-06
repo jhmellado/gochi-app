@@ -47,8 +47,12 @@ const Login = (props) => {
             .get()
             .then((doc) => {
               if (doc.exists) {
-                props.history.push("/userprofile");
-                props.history.go(0);
+                if (props.userprofile) {
+                  props.history.push("/userprofile");
+                  props.history.go(0);
+                } else {
+                  props.history.go(0);
+                }
               } else {
                 db.collection("usuarios")
                   .doc(res.user.uid)
@@ -73,8 +77,12 @@ const Login = (props) => {
                     },
                   })
                   .then((res) => {
-                    props.history.push("/userprofile");
-                    props.history.go(0);
+                    if (props.userprofile) {
+                      props.history.push("/userprofile");
+                      props.history.go(0);
+                    } else {
+                      props.history.go(0);
+                    }
                   });
               }
             })
@@ -98,8 +106,12 @@ const Login = (props) => {
           setContrasena("");
           setEmail("");
           setError(null);
-          props.history.push("/userprofile");
-          props.history.go(0);
+          if (props.userprofile) {
+            props.history.push("/userprofile");
+            props.history.go(0);
+          } else {
+            props.history.go(0);
+          }
         })
         .catch((error) => {
           console.log(error);
@@ -127,10 +139,10 @@ const Login = (props) => {
   }, [email, contrasena, props.history]);
 
   return (
-    <div className="container my-5">
+    <div className={`container my-${props.my}`}>
       <div className="row justify-content-center">
         <div
-          className="contenedortodo col-11 col-sm-8 col-md-6 col-xl-4 mb-4 rounded"
+          className={`${props.contenedor}`}
           style={{
             backgroundColor: "#e7f6a8",
             borderStyle: "solid",
@@ -155,7 +167,7 @@ const Login = (props) => {
             </p>
             <button
               type="button"
-              className="btn btn-secondary"
+              className="btn btn-secondary w-100"
               onClick={() => iniciarSesionGoogle()}
             >
               <svg

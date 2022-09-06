@@ -307,7 +307,7 @@ const Cultivo = (props) => {
                       <div className="modal-content">
                         <div className="modal-header">
                           <h5 className="modal-title" id="exampleModalLabel">
-                            Inicia Sesión o Registrate
+                            Inicia Sesión o Registrate para comentar
                           </h5>
                           <button
                             type="button"
@@ -317,18 +317,15 @@ const Cultivo = (props) => {
                           ></button>
                         </div>
                         <div className="modal-body">
-                          <Login/>
+                          <Login userprofile = {false} my={0} contenedor = {'col-11 rounded'}/>
                         </div>
                         <div className="modal-footer">
                           <button
                             type="button"
-                            className="btn btn-secondary"
+                            className="btn btn-danger"
                             data-bs-dismiss="modal"
                           >
-                            Close
-                          </button>
-                          <button type="button" className="btn btn-primary">
-                            Save changes
+                            Cancelar
                           </button>
                         </div>
                       </div>

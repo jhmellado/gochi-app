@@ -23,17 +23,15 @@ import ResetPassword from "./components/view/ResetPassword";
 import Cargando from "./components/component/Cargando";
 import Configuracion from "./components/view/configuracion/Configuracion";
 
-
 function App() {
   const [firebaseUser, setFirebaseUser] = useState(false);
-  
 
   const obtenerUsuario = (user) => {
     db.collection("usuarios")
-  .doc(user.uid)
-  .onSnapshot((doc) => {
-    setFirebaseUser(doc.data());
-  });
+      .doc(user.uid)
+      .onSnapshot((doc) => {
+        setFirebaseUser(doc.data());
+      });
   };
 
   useEffect(() => {
@@ -54,7 +52,13 @@ function App() {
           <Home />
         </Route>
         <Route path="/login">
-          <Login />
+          <Login
+            userprofile={true}
+            my={5}
+            contenedor={
+              "contenedortodo col-11 col-sm-8 col-md-6 col-xl-4 mb-4 rounded"
+            }
+          />
         </Route>
         <Route path="/registro">
           <Registro />
@@ -63,22 +67,23 @@ function App() {
           <ResetPassword />
         </Route>
         <Route path="/terminos-y-condiciones">
-          <TerminosCondiciones/>
+          <TerminosCondiciones />
         </Route>
         <Route path="/nosotros">
           <Nosotros />
         </Route>
         <Route path="/userprofile">
-          <UserProfile usuario ={firebaseUser} />
+          <UserProfile usuario={firebaseUser} />
         </Route>
         <Route path="/cursos">
           <Cursos />
         </Route>
-        <Route path="/curso/:id"
-               render={({ match }) => {
-                return <Curso usuario ={firebaseUser} id={match.params.id}/>;
-              }}>
-        </Route>
+        <Route
+          path="/curso/:id"
+          render={({ match }) => {
+            return <Curso usuario={firebaseUser} id={match.params.id} />;
+          }}
+        ></Route>
         <Route path="/categoria">
           <CategoriaCultivos />
         </Route>
@@ -91,21 +96,28 @@ function App() {
         <Route
           path="/cultivo/:name/:id"
           render={({ match }) => {
-            return <Cultivo usuario ={firebaseUser} id={match.params.id} name={match.params.name} />;
+            return (
+              <Cultivo
+                usuario={firebaseUser}
+                id={match.params.id}
+                name={match.params.name}
+              />
+            );
           }}
         />
         <Route
           path="/configuracion/:id"
           render={({ match }) => {
-            return <Configuracion usuario ={firebaseUser} id={match.params.id}/>;
+            return (
+              <Configuracion usuario={firebaseUser} id={match.params.id} />
+            );
           }}
         />
-        
       </Switch>
       <Footer />
     </BrowserRouter>
   ) : (
-    <Cargando/>
+    <Cargando />
   );
 }
 
