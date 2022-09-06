@@ -8,6 +8,7 @@ import Cargando from "../../component/Cargando";
 import Acercade from "./cursoComponentes/Acercade";
 import ContenidoCurso from "./cursoComponentes/ContenidoCurso";
 import NavbarCurso from "./cursoComponentes/NavbarCurso";
+import Publicidad from "./cursoComponentes/Publicidad";
 import Reproductor from "./cursoComponentes/Reproductor";
 
 const Curso = (props) => {
@@ -35,29 +36,29 @@ const Curso = (props) => {
   return curso !== null ? (
     <div className="container">
       <div className="row">
-      <div className="col-lg-9">
-        <div className="container">
-          <div className="row embed-responsive embed-responsive-16by9">
-            <Reproductor src={curso.reco_secciones_go[0].url} />
-          </div>
-          <div className="row">
-            <NavbarCurso />
-          </div>
-          <div className="row">
-            <Acercade
-              about={curso.reco_about_go}
-              description={curso.reco_description_go}
-              instructor={curso.reco_instructor_go}
-            />
+        <div className="col-lg-9">
+          <div className="container">
+            <div className="row embed-responsive embed-responsive-16by9">
+              <Reproductor src={curso.reco_secciones_go[0].url} />
+            </div>
+            <div className="row">
+              <NavbarCurso />
+            </div>
+            <div className="row">
+              <Acercade
+                about={curso.reco_about_go}
+                description={curso.reco_description_go}
+                instructor={curso.reco_instructor_go}
+              />
+            </div>
           </div>
         </div>
-      </div>
-      <div className="col">
-        <ContenidoCurso secciones={curso.reco_secciones_go} />
+        <div className="col">
+          <ContenidoCurso secciones={curso.reco_secciones_go} />
+          <Publicidad lista = {curso.reco_publicidad_go}/>
+        </div>
       </div>
     </div>
-    </div>
-    
   ) : (
     <Cargando />
   );
