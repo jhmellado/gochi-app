@@ -75,7 +75,7 @@ const NavbarLogin = (props) => {
                 aria-expanded="false"
               >
                 <img
-                  src={gochi_logo}
+                  src={props.user.img_profile}
                   alt="mdo"
                   width="32"
                   height="32"
@@ -197,6 +197,7 @@ const NavbarLogin = (props) => {
                 className="mx-2"
                 style={{ color: "red", fontSize: "30px" }}
               />
+              </a>
               <a href="https://twitter">
                 <BsFacebook className="mx-2" style={{ fontSize: "30px" }} />
               </a>
@@ -209,7 +210,6 @@ const NavbarLogin = (props) => {
                   }}
                 />
               </a>
-            </a>
           </div>
         </div>
       </div>

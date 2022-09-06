@@ -122,8 +122,8 @@ function NavbarNoLogin() {
           <div className="offcanvas-header m-auto justify-content-between">
             <a href="wwww.elgochiapp.com" id="sddfs" className="sfds">
               <BsInstagram className="mx-2"
-                style={{ color: "red", marginTop: "12rem", fontSize: "30px" }}
-              />
+                style={{ color: "red", marginTop: "12rem", fontSize: "30px" }}/>
+              </a>
               <a href="https://twitter">
                 <BsFacebook className="mx-2" style={{ marginTop: "12rem", fontSize: "30px" }} />
               </a>
@@ -136,7 +136,6 @@ function NavbarNoLogin() {
                   }}
                 />
               </a>
-            </a>
           </div>
         </div>
       </div>

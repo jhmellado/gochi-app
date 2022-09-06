@@ -136,7 +136,7 @@ const Login = (props) => {
         setError("Contraseña incorrecta");
       }
     }
-  }, [email, contrasena, props.history]);
+  }, [email, contrasena, props]);
 
   return (
     <div className={`container my-${props.my}`}>
@@ -170,6 +170,11 @@ const Login = (props) => {
               className="btn btn-secondary w-100"
               onClick={() => iniciarSesionGoogle()}
             >
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width={"7%"}
+                height="7%"
+                viewBox="0 0 184 184">
               <path
                 d="M40.778,199.771l-6.4,23.91-23.409.5a92.161,92.161,0,0,1-.677-85.909h.005l20.841,3.821,9.13,20.716a54.906,54.906,0,0,0,.516,36.967Z"
                 transform="translate(0 -88.578)"
@@ -190,9 +195,9 @@ const Login = (props) => {
                 transform="translate(-18.337)"
                 fill="#f14336"
               ></path>
-            </svg>
-            <span>Google</span>
-          </button>
+              </svg>
+              <span>Google</span>
+            </button>
           </div>
           <p className="mb-3 text-muted text-center">
             <small>
@@ -200,9 +205,7 @@ const Login = (props) => {
               <a href="/terminos-y-condiciones">Términos y condiciones</a>
             </small>
           </p>
-        </div>
-
-        <form onSubmit={procesarInputs}>
+          <form onSubmit={procesarInputs}>
           {error && <div className="alert alert-danger">{error}</div>}
 
           <p>
@@ -250,9 +253,9 @@ const Login = (props) => {
             <a href="/resetpassword">¿Olvidaste tu contraseña?</a>
           </p>
         </form>
+        </div>
       </div>
-    </div>
-  </div>
+    </div> 
   );
 };
 

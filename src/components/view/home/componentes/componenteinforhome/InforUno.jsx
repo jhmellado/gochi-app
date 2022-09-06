@@ -23,7 +23,7 @@ function InforUno({
 
         <h3>{titulo3}</h3>
         <p>{descripcion3}</p>
-        <img className="img-fluid" src={imagenPlantas} />
+        <img className="img-fluid" src={imagenPlantas} alt={""}/>
       </article>
     </div>
   );
