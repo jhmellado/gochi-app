@@ -181,11 +181,12 @@ const Cultivo = (props) => {
   };
 
   useEffect(() => {
-    if (props.usuario) {
+    /*if (props.usuario) {
       obtenerDatos();
     } else {
       props.history.push("/login");
-    }
+    }*/
+    obtenerDatos();
     document.title = `Gochi - ${props.name}`;
   }, [props, obtenerDatos]);
 
@@ -234,9 +235,9 @@ const Cultivo = (props) => {
                 <div className="p-0">
                   <img
                     className="rounded-circle"
-                    alt={`${props.usuario.username}`}
+                    alt={props.usuario !== null ? props.usuario.username : ""}
                     src={
-                      props.usuario.img_profile !== ""
+                      props.usuario !== null
                         ? props.usuario.img_profile
                         : "https://static.platzi.com/media/avatars/avatars/pabloerazo_1c128cb8-315f-4e4a-bfbc-c36aa60aee4b.jpg"
                     }
@@ -245,7 +246,7 @@ const Cultivo = (props) => {
                   />
                 </div>
                 <div className="my-auto ms-2">
-                  <strong>{props.usuario.username}</strong>
+                  <strong>{props.usuario !== null ? props.usuario.username : "Usuario Anónimo"}</strong>
                 </div>
               </div>
             </div>
