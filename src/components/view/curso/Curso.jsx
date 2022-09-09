@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { withRouter } from "react-router";
 import { auth } from "../../../firebase";
+import BotonFavoritos from "../../component/BotonFavoritos";
 import Cargando from "../../component/Cargando";
 import Acercade from "./cursoComponentes/Acercade";
 import ContenidoCurso from "./cursoComponentes/ContenidoCurso";
@@ -13,7 +14,7 @@ import Reproductor from "./cursoComponentes/Reproductor";
 
 const Curso = (props) => {
   const [curso, setCurso] = useState(null);
-
+ 
   const obtenerDatos = useCallback(async () => {
     const data = await fetch(
       `http://a0f8ad0f-c3e0-4ad1-b6e5-b9cd87a74995.clouding.host:3000/recopilations/${props.id}`
@@ -41,8 +42,15 @@ const Curso = (props) => {
             <div className="row embed-responsive embed-responsive-16by9">
               <Reproductor src={curso.reco_secciones_go[0].url} />
             </div>
-            <div className="row h2 py-2">
-              Curso: {curso.reco_name_go}
+            <div className="row justify-content-around py-2">
+              <div className="col-8 h2">Curso: {curso.reco_name_go}</div>
+              <div className="col-4 mx-auto">
+                <BotonFavoritos nameColeccion = {"cursos"}
+                                idUser = {props.usuario.uid}
+                                nameCurso ={curso.reco_name_go}
+                                idCurso = {`/curso/${props.id}`}
+                                imgCurso ={curso.reco_imagen_go}/>
+              </div>
             </div>
             <div className="row">
               <NavbarCurso />
@@ -58,7 +66,7 @@ const Curso = (props) => {
         </div>
         <div className="col">
           <ContenidoCurso secciones={curso.reco_secciones_go} />
-          <Publicidad lista = {curso.reco_publicidad_go}/>
+          <Publicidad lista={curso.reco_publicidad_go} />
         </div>
       </div>
     </div>
