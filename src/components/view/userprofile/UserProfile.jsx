@@ -68,7 +68,7 @@ const UserProfile = (props) => {
         <div className="col-lg-8">
           <div className="card" style={{borderRadius: "0px"}}>
             <div className="card-body">
-              <Tabs/>
+              <Tabs usuario = {props.usuario}/>
             </div>
           </div>
         </div>
