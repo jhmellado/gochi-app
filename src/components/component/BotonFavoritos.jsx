@@ -1,4 +1,5 @@
 import React from "react";
+import { useEffect } from "react";
 import { useState } from "react";
 import { BsBookmarkHeartFill, BsBookmarkPlus } from "react-icons/bs";
 import { BsBookmarkXFill } from "react-icons/bs";
@@ -13,12 +14,12 @@ const BotonFavoritos = (props) => {
       db.collection("favoritos")
         .doc(props.idUser)
         .collection(props.nameColeccion)
-        .doc(props.idCurso)
+        .doc(props.idDoc)
         .set({
-          id: `${props.idCurso}`,
-          name: `${props.nameCurso}`,
-          url: `${props.urlCurso}`,
-          imagen: `${props.imgCurso}`,
+          id: `${props.idDoc}`,
+          name: `${props.nameDoc}`,
+          url: `${props.urlDoc}`,
+          imagen: `${props.imgDoc}`,
         })
         .then((res) => {
           setListaFavoritos(false);
@@ -28,7 +29,7 @@ const BotonFavoritos = (props) => {
       db.collection("favoritos")
         .doc(props.idUser)
         .collection(props.nameColeccion)
-        .doc(props.idCurso)
+        .doc(props.idDoc)
         .delete()
         .then((res) => {
           setListaFavoritos(true);
@@ -44,6 +45,26 @@ const BotonFavoritos = (props) => {
       setFavoritos(true);
     }
   };
+
+  useEffect(() => {
+    db.collection("favoritos")
+    .doc(props.idUser)
+    .collection(props.nameColeccion)
+    .where("id","==",props.idDoc).get().then((querySnapshot) => {
+      querySnapshot.forEach((doc) => {
+          if (doc.id === props.idDoc) {
+            setListaFavoritos(false);
+            setFavoritos(true);
+          } else {
+            setListaFavoritos(true);
+            setFavoritos(false);
+          }
+      });
+  })
+  .catch((error) => {
+      console.log("Error getting documents: ", error);
+  });
+  }, [props]);
 
   return (
     <div>
