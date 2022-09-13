@@ -48,7 +48,8 @@ const Curso = (props) => {
                 <BotonFavoritos nameColeccion = {"cursos"}
                                 idUser = {props.usuario.uid}
                                 nameCurso ={curso.reco_name_go}
-                                idCurso = {`/curso/${props.id}`}
+                                urlCurso = {`/curso/${props.id}`}
+                                idCurso = {`${props.id}`}
                                 imgCurso ={curso.reco_imagen_go}/>
               </div>
             </div>

@@ -2,7 +2,7 @@ import React from "react";
 import { useState } from "react";
 import { BsBookmarkHeartFill, BsBookmarkPlus } from "react-icons/bs";
 import { BsBookmarkXFill } from "react-icons/bs";
-//import { db } from "../../firebase";
+import { db } from "../../firebase";
 
 const BotonFavoritos = (props) => {
   const [favoritos, setFavoritos] = useState(false);
@@ -10,24 +10,30 @@ const BotonFavoritos = (props) => {
 
   const changefavoritos = () => {
     if (listafavoritos) {
-     /* db.collection(props.nameColeccion)
-        .doc("")
-        .collection("comentarios")
-        .doc(props.usuario.uid)
+      db.collection("favoritos")
+        .doc(props.idUser)
+        .collection(props.nameColeccion)
+        .doc(props.idCurso)
         .set({
-          uid: `${props.usuario.uid}`,
-          cid: props.usuario.uid,
-          comentario: true,
-          username: `${props.usuario.username}`,
-          imagen: `${
-            props.usuario.img_profile !== ""
-              ? props.usuario.img_profile
-              : "https://static.platzi.com/media/avatars/avatars/pabloerazo_1c128cb8-315f-4e4a-bfbc-c36aa60aee4b.jpg"
-          }`
-        });*/
-      setListaFavoritos(false);
+          id: `${props.idCurso}`,
+          name: `${props.nameCurso}`,
+          url: `${props.urlCurso}`,
+          imagen: `${props.imgCurso}`,
+        })
+        .then((res) => {
+          setListaFavoritos(false);
+          setFavoritos(true);
+        });
     } else {
-      setListaFavoritos(true);
+      db.collection("favoritos")
+        .doc(props.idUser)
+        .collection(props.nameColeccion)
+        .doc(props.idCurso)
+        .delete()
+        .then((res) => {
+          setListaFavoritos(true);
+          setFavoritos(false);
+        });
     }
   };
 

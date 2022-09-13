@@ -4,12 +4,12 @@ import 'firebase/auth';
 import 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyDaEyah6TSSuZCU1DRAF86AMY1ggeyU7hc",
-  authDomain: "gochi-app.firebaseapp.com",
-  projectId: "gochi-app",
-  storageBucket: "gochi-app.appspot.com",
-  messagingSenderId: "570769947302",
-  appId: "1:570769947302:web:f8d94a465ae1aa2ca1d267"
+  apiKey: "AIzaSyBAdWETY4SGELGrtTWgT908Nr1tLsO2M-U",
+  authDomain: "mihuetafacil.firebaseapp.com",
+  projectId: "mihuetafacil",
+  storageBucket: "mihuetafacil.appspot.com",
+  messagingSenderId: "631887267271",
+  appId: "1:631887267271:web:ad46ace497e6827aa845e2"
   };
 
   // Initialize Firebase
