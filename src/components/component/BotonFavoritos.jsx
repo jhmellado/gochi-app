@@ -38,14 +38,6 @@ const BotonFavoritos = (props) => {
     }
   };
 
-  const cambiarTextoBoton = () => {
-    if (favoritos) {
-      setFavoritos(false);
-    } else {
-      setFavoritos(true);
-    }
-  };
-
   useEffect(() => {
     db.collection("favoritos")
     .doc(props.idUser)
@@ -55,9 +47,6 @@ const BotonFavoritos = (props) => {
           if (doc.id === props.idDoc) {
             setListaFavoritos(false);
             setFavoritos(true);
-          } else {
-            setListaFavoritos(true);
-            setFavoritos(false);
           }
       });
   })
@@ -81,8 +70,8 @@ const BotonFavoritos = (props) => {
             favoritos ? "btn btn-warning w-100" : "btn btn-danger w-100"
           }
           onClick={() => changefavoritos()}
-          onMouseEnter={() => cambiarTextoBoton()}
-          onMouseLeave={() => cambiarTextoBoton()}
+          onMouseEnter={() => setFavoritos(false)}
+          onMouseLeave={() => setFavoritos(true)}
         >
           {favoritos ? (
             <div>

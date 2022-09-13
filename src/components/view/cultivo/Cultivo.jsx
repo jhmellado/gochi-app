@@ -194,7 +194,10 @@ const Cultivo = (props) => {
   return cultivo !== null ? (
     <div className="container">
       <EncabezadoCultivo
-        nombre={cultivo.cul_name_go}
+        usuario = {props.usuario}
+        nombreCultivo={cultivo.cul_name_go}
+        idCultivo = {cultivo._id}
+        imgCultivo = {cultivo.cul_icon_go}
         nombre_cientifico={cultivo.cul_cientifico_name_go}
         descripcion={cultivo.cul_description_go}
         imagen_banner={cultivo.cul_banner_go}

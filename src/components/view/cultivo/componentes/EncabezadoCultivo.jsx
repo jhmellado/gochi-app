@@ -1,4 +1,5 @@
 import React from "react";
+import BotonFavoritos from "../../../component/BotonFavoritos";
 
 const EncabezadoCultivo = (props) => {
   return (
@@ -18,7 +19,7 @@ const EncabezadoCultivo = (props) => {
               className="display-4"
               style={{ textShadow: "0 0 2px #b3c760", color: "white" }}
             >
-              {props.nombre}
+              {props.nombreCultivo}
             </h1>
             <h2
               className="display-5 fst-italic"
@@ -39,6 +40,12 @@ const EncabezadoCultivo = (props) => {
               <b>{props.descripcion}</b>{" "}
             </p>
           </div>
+          <BotonFavoritos nameColeccion = {"cultivos"}
+                          idUser = {props.usuario.uid}
+                          nameDoc ={props.nombreCultivo}
+                          urlDoc = {`/cultivo/${props.nombreCultivo}/${props.idCultivo}`}
+                          idDoc = {props.idCultivo}
+                          imgDoc ={props.imgCultivo}/>
         </div>
       </div>
     </div>
