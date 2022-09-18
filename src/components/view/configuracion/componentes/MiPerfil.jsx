@@ -8,13 +8,32 @@ const MiPerfil = () => {
   const [apellido, setApellido] = useState("");
   const [username, setUsername] = useState("");
 
+  const expresiones = {
+    usuarioname: /^[a-zA-Z0-9_-]{4,16}$/,
+    sobremi: /^[a-zA-ZÀ-ÿ0-9\s]{4,50}$/,
+    name: /^[a-zA-ZÀ-ÿ\s]{3,40}$/,
+    lastname: /^[a-zA-ZÀ-ÿ\s]{3,40}$/,
+  };
+
   const procesarNombre = (event) => {
     event.preventDefault();
     if (!nombre.trim()) {
-      setError("Ingrese un su nombre");
+      setError("Ingrese su nombre");
       return;
     }
-
+    if (expresiones.name.test(nombre) === false) {
+      setError("Solo puede ingresar letras");
+      return;
+    }
+    if (nombre.trim().length < nombre.length) {
+      setError("No puede haber espacios");
+      return;
+    }
+    if (nombre.indexOf(" ") !== -1) {
+      setError("No puede haber espacios en medio");
+      return;
+    }
+    console.log(nombre);
     setError(null);
   };
 
@@ -24,7 +43,19 @@ const MiPerfil = () => {
       setError("Ingrese su apellido");
       return;
     }
-
+    if (expresiones.lastname.test(apellido) === false) {
+      setError("Solo puede ingresar letras");
+      return;
+    }
+    if (apellido.trim().length < apellido.length) {
+      setError("No puede haber espacios");
+      return;
+    }
+    if (apellido.indexOf(" ") !== -1) {
+      setError("No puede haber espacios en medio");
+      return;
+    }
+    console.log(apellido);
     setError(null);
   };
 
@@ -34,6 +65,15 @@ const MiPerfil = () => {
       setError("Su descripción no debe ir vacía");
       return;
     }
+    if (expresiones.sobremi.test(about) === false) {
+      setError("Solo puede ingresar letras y números");
+      return;
+    }
+    if (about.trim().length < about.length) {
+      setError("No puede haber espacios");
+      return;
+    }
+    console.log(about);
     setError(null);
   };
 
@@ -43,6 +83,19 @@ const MiPerfil = () => {
       setError("Ingrese su nombre de usuario");
       return;
     }
+    if (expresiones.usuarioname.test(username) === false) {
+      setError("Solo puede ingresar letras y números");
+      return;
+    }
+    if (username.trim().length < username.length) {
+      setError("No puede haber espacios");
+      return;
+    }
+    if (username.indexOf(" ") !== -1) {
+      setError("No puede haber espacios en medio");
+      return;
+    }
+    console.log(username);
     setError(null);
   };
 
