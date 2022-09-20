@@ -1,11 +1,63 @@
 import React from "react";
 import { useState } from "react";
+import { db } from "../../../../firebase";
 
-const RedesSociales = () => {
+const RedesSociales = (props) => {
   const [instagram, setInstagram] = useState("");
   const [facebook, setFacebook] = useState("");
   const [twitter, setTwitter] = useState("");
   const [error, setError] = useState(null);
+
+  const expresiones = {
+    ig: /(?:(?:http|https):\/\/)?(?:www.)?(?:instagram.com|instagr.am|instagr.com)\/(\w+)/gim,
+    fb: /(?:(?:http|https):\/\/)?(?:www.)?facebook.com\/(?:(?:\w)*#!\/)?(?:pages\/)?(?:[?\w\-]*\/)?(?:profile.php\?id=(?=\d.*))?([\w\-]*)?/,
+    twt: /(https:\/\/twitter.com\/(?![a-zA-Z0-9_]+\/)([a-zA-Z0-9_]+))/g,
+  };
+
+  const updateInstagramUser = () => {
+    db.collection("usuarios")
+      .doc(props.usuario.uid)
+      .update({
+        instagram: {
+          exist: true,
+          url: instagram,
+        },
+      })
+      .then((res) => {
+        setError("Perfil de instagram actualizado");
+        setInstagram("");
+      });
+  };
+
+  const updateFacebookUser = () => {
+    db.collection("usuarios")
+      .doc(props.usuario.uid)
+      .update({
+        facebook: {
+          exist: true,
+          url: facebook,
+        },
+      })
+      .then((res) => {
+        setError("Perfil de facebook actualizado");
+        setFacebook("");
+      });
+  };
+
+  const updateTwitterUser = () => {
+    db.collection("usuarios")
+      .doc(props.usuario.uid)
+      .update({
+        twitter: {
+          exist: true,
+          url: twitter,
+        },
+      })
+      .then((res) => {
+        setError("Perfil de twitter actualizado");
+        setTwitter("");
+      });
+  };
 
   const procesarInstagram = (event) => {
     event.preventDefault();
@@ -13,7 +65,20 @@ const RedesSociales = () => {
       setError("Ingrese su enlace de perfil de Instagram");
       return;
     }
+    if (expresiones.ig.test(instagram) === false) {
+      setError("Por favor ingrese un enlace de perfil de instagram");
+      return;
+    }
+    if (instagram.trim().length < instagram.length) {
+      setError("No puede haber espacios");
+      return;
+    }
+    if (instagram.indexOf(" ") !== -1) {
+      setError("No puede haber espacios en medio");
+      return;
+    }
     setError(null);
+    updateInstagramUser();
   };
 
   const procesarFacebook = (event) => {
@@ -22,7 +87,20 @@ const RedesSociales = () => {
       setError("Ingrese su enlace de perfil de Facebook");
       return;
     }
+    if (expresiones.fb.test(facebook) === false) {
+      setError("Por favor ingrese un enlace de perfil de facebook");
+      return;
+    }
+    if (facebook.trim().length < facebook.length) {
+      setError("No puede haber espacios");
+      return;
+    }
+    if (facebook.indexOf(" ") !== -1) {
+      setError("No puede haber espacios en medio");
+      return;
+    }
     setError(null);
+    updateFacebookUser();
   };
 
   const procesarTwitter = (event) => {
@@ -31,7 +109,22 @@ const RedesSociales = () => {
       setError("Ingrese su enlace de perfil de Twitter");
       return;
     }
+    if (expresiones.twt.test(twitter) === false) {
+      setError(
+        "Por favor ingrese un enlace de perfil de twitter, con el siguiente formato: https://twitter.com/..."
+      );
+      return;
+    }
+    if (twitter.trim().length < twitter.length) {
+      setError("No puede haber espacios");
+      return;
+    }
+    if (twitter.indexOf(" ") !== -1) {
+      setError("No puede haber espacios en medio");
+      return;
+    }
     setError(null);
+    updateTwitterUser();
   };
 
   return (
@@ -49,7 +142,20 @@ const RedesSociales = () => {
         <div className="d-flex row justify-content-center">
           <div className="col-12 col-md-6 px-0">
             <div className="container">
-              {error && <div className="alert alert-danger">{error}</div>}
+              {error && (
+                <div
+                  className={
+                    error !== "Perfil de instagram actualizado" &&
+                    error !== "Perfil de facebook actualizado" &&
+                    error !== "Perfil de twitter actualizado"
+                      ? "alert alert-danger"
+                      : "alert alert-success"
+                  }
+                  role={"alert"}
+                >
+                  {error}
+                </div>
+              )}
               <p>
                 <strong>Ingresa tus datos</strong>
               </p>
