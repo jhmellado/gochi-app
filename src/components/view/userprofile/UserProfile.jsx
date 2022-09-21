@@ -100,12 +100,10 @@ const UserProfile = (props) => {
             </div>
           </div>
         </div>
-      </div>
-      <div className="card-body container">
-        <div className="d-flex row justify-content-around justify-content-lg-center">
-          <div className="col-8 col-lg-12 my-auto">
-          <div className=" fade show active">
-            <table
+        <div className="row justify-content-around justify-content-lg-center bg-white border mt-4 mx-auto">
+          <div className="col my-auto">
+            <h2 className="text-center my-3">Calendario de siembra</h2>
+          <table
               className="table table-striped"
               style={{ border: "4px solid #e7f6a8" }}
             >
@@ -113,11 +111,11 @@ const UserProfile = (props) => {
                 <tr>
                   <td></td>
                   <td colSpan={12} className="text-center bg-dark text-white">
-                    Época de Siembra
+                    Época de Siembra - Meses
                   </td>
                 </tr>
                 <tr className="text-center">
-                  <td className="bg-dark text-white">Meses</td>
+                  <td className="bg-dark text-white">Cultivo</td>
                   <td>E</td>
                   <td>F</td>
                   <td>M</td>
@@ -276,7 +274,6 @@ const UserProfile = (props) => {
                 </tr>
               </tbody>
             </table>
-          </div>
           </div>
         </div>
       </div>
