@@ -5,6 +5,7 @@ import Cargando from "../../component/Cargando";
 import Tabs from "./componentes/Tabs";
 import { db } from "../../../firebase";
 import { useState } from "react";
+import Calendario from "./componentes/Calendario.tsx";
 const UserProfile = (props) => {
   const [cultivosFavoritos, setCultivosFavoritos] = useState(0);
   const [recopilaciones, setRecopilacionFavoritos] = useState(0);
@@ -100,180 +101,15 @@ const UserProfile = (props) => {
             </div>
           </div>
         </div>
-        <div className="row justify-content-around justify-content-lg-center bg-white border mt-4 mx-auto">
-          <div className="col my-auto">
+        <div className="row justify-content-around justify-content-lg-center bg-white mt-4 mx-auto border">
+          <div className="col my-auto px-0">
+            
             <h2 className="text-center my-3">Calendario de siembra</h2>
-          <table
-              className="table table-striped"
-              style={{ border: "4px solid #e7f6a8" }}
-            >
-              <tbody>
-                <tr>
-                  <td></td>
-                  <td colSpan={12} className="text-center bg-dark text-white">
-                    Época de Siembra - Meses
-                  </td>
-                </tr>
-                <tr className="text-center">
-                  <td className="bg-dark text-white">Cultivo</td>
-                  <td>E</td>
-                  <td>F</td>
-                  <td>M</td>
-                  <td>A</td>
-                  <td>M</td>
-                  <td>J</td>
-                  <td>J</td>
-                  <td>A</td>
-                  <td>S</td>
-                  <td>O</td>
-                  <td>N</td>
-                  <td>D</td>
-                </tr>
-                <tr>
-                  <td>Acelga</td>
-                  <td className="bg-success" colSpan={12}></td>
-                </tr>
-                <tr>
-                  <td>Ají</td>
-                  <td className="bg-white" colSpan={6}></td>
-                  <td className="bg-success" colSpan={2}></td>
-                  <td className="bg-white" colSpan={4}></td>
-                </tr>
-                <tr>
-                  <td>Ajo</td>
-                  <td className="bg-white" colSpan={3}></td>
-                  <td className="bg-success" colSpan={5}></td>
-                  <td className="bg-white" colSpan={4}></td>
-                </tr>
-                <tr>
-                  <td>Albahaca</td>
-                  <td className="bg-white" colSpan={7}></td>
-                  <td className="bg-success" colSpan={2}></td>
-                  <td className="bg-white" colSpan={3}></td>
-                </tr>
-                <tr>
-                  <td>Apio</td>
-                  <td className="bg-success" colSpan={12}></td>
-                </tr>
-                <tr>
-                  <td>Berenjena</td>
-                  <td className="bg-white" colSpan={8}></td>
-                  <td className="bg-success" colSpan={4}></td>
-                </tr>
-                <tr>
-                  <td>Betarraga</td>
-                  <td className="bg-white" colSpan={7}></td>
-                  <td className="bg-success" colSpan={2}></td>
-                  <td className="bg-white" colSpan={3}></td>
-                </tr>
-                <tr>
-                  <td>Brócoli</td>
-                  <td className="bg-success" colSpan={12}></td>
-                </tr>
-                <tr>
-                  <td>Cebolla</td>
-                  <td className="bg-success" colSpan={2}></td>
-                  <td className="bg-white" colSpan={7}></td>
-                  <td className="bg-success " colSpan={3}></td>
-                </tr>
-                <tr>
-                  <td>Choclo</td>
-                  <td className="bg-white" colSpan={8}></td>
-                  <td className="bg-success" colSpan={4}></td>
-                </tr>
-                <tr>
-                  <td>Cilantro</td>
-                  <td className="bg-white" colSpan={7}></td>
-                  <td className="bg-success" colSpan={2}></td>
-                  <td className="bg-white" colSpan={3}></td>
-                </tr>
-                <tr>
-                  <td>Coliflor</td>
-                  <td className="bg-success" colSpan={12}></td>
-                </tr>
-                <tr>
-                  <td>Espinaca</td>
-                  <td className="bg-success" colSpan={12}></td>
-                </tr>
-                <tr>
-                  <td>Lechuga</td>
-                  <td className="bg-success" colSpan={12}></td>
-                </tr>
-                <tr>
-                  <td>Melón</td>
-                  <td className="bg-success" colSpan={2}></td>
-                  <td className="bg-white" colSpan={6}></td>
-                  <td className="bg-success" colSpan={4}></td>
-                </tr>
-                <tr>
-                  <td>Papas</td>
-                  <td className="bg-white" colSpan={7}></td>
-                  <td className="bg-success" colSpan={3}></td>
-                  <td className="bg-white" colSpan={2}></td>
-                </tr>
-                <tr>
-                  <td>Pepino</td>
-                  <td className="bg-white" colSpan={8}></td>
-                  <td className="bg-success" colSpan={4}></td>
-                </tr>
-                <tr>
-                  <td>Perejil</td>
-                  <td className="bg-success" colSpan={12}></td>
-                </tr>
-                <tr>
-                  <td>Pimentón</td>
-                  <td className="bg-white" colSpan={6}></td>
-                  <td className="bg-success" colSpan={2}></td>
-                  <td className="bg-white" colSpan={4}></td>
-                </tr>
-                <tr>
-                  <td>Porotos</td>
-                  <td className="bg-success" colSpan={1}></td>
-                  <td className="bg-white" colSpan={8}></td>
-                  <td className="bg-success" colSpan={3}></td>
-                </tr>
-                <tr>
-                  <td>Puerros</td>
-                  <td className="bg-success" colSpan={5}></td>
-                  <td className="bg-white" colSpan={3}></td>
-                  <td className="bg-success" colSpan={4}></td>
-                </tr>
-                <tr>
-                  <td>Rábanos</td>
-                  <td className="bg-success" colSpan={12}></td>
-                </tr>
-                <tr>
-                  <td>Repollo</td>
-                  <td className="bg-success" colSpan={12}></td>
-                </tr>
-                <tr>
-                  <td>Sandía</td>
-                  <td className="bg-white" colSpan={8}></td>
-                  <td className="bg-success" colSpan={4}></td>
-                </tr>
-                <tr>
-                  <td>Tomate</td>
-                  <td className="bg-white" colSpan={7}></td>
-                  <td className="bg-success" colSpan={2}></td>
-                  <td className="bg-white" colSpan={3}></td>
-                </tr>
-                <tr>
-                  <td>Zanahoria</td>
-                  <td className="bg-success" colSpan={12}></td>
-                </tr>
-                <tr>
-                  <td>Zapallo</td>
-                  <td className="bg-white" colSpan={8}></td>
-                  <td className="bg-success" colSpan={4}></td>
-                </tr>
-                <tr>
-                  <td>Zapallo Italiano</td>
-                  <td className="bg-success" colSpan={1}></td>
-                  <td className="bg-white" colSpan={7}></td>
-                  <td className="bg-success" colSpan={4}></td>
-                </tr>
-              </tbody>
-            </table>
+            <h5 className="text-center">✔: Sembrar</h5>
+            <h5 className="text-center mb-3">❌: No Sembrar</h5>
+            <Calendario/>
+           
+            
           </div>
         </div>
       </div>
