@@ -6,8 +6,8 @@ import Tabs from "./componentes/Tabs";
 import { db } from "../../../firebase";
 import { useState } from "react";
 const UserProfile = (props) => {
-  const [cultivosFavoritos, setCultivosFavoritos] = useState(null);
-  const [recopilaciones, setRecopilacionFavoritos] = useState(null);
+  const [cultivosFavoritos, setCultivosFavoritos] = useState(0);
+  const [recopilaciones, setRecopilacionFavoritos] = useState(0);
 
   useEffect(() => {
     if (props.usuario) {
