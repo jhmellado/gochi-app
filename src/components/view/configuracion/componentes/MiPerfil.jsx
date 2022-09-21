@@ -1,7 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import { db } from "../../../../firebase";
 
-const MiPerfil = () => {
+const MiPerfil = (props) => {
   const [error, setError] = useState(null);
   const [about, setAbout] = useState("");
   const [nombre, setNombre] = useState("");
@@ -10,9 +11,175 @@ const MiPerfil = () => {
 
   const expresiones = {
     usuarioname: /^[a-zA-Z0-9_-]{4,16}$/,
-    sobremi: /^[a-zA-ZÀ-ÿ0-9\s]{4,50}$/,
-    name: /^[a-zA-ZÀ-ÿ\s]{3,40}$/,
+    sobremi: /[.,\/#!$%\^&\*;:{}=\-_`~()”“"…]/g,
+    name: /^[a-zA-ZÀ-ÿ\s]{3,40}$/,  
     lastname: /^[a-zA-ZÀ-ÿ\s]{3,40}$/,
+  };
+
+  const updateNombre = () => {
+    const displayName = props.usuario.displayName;
+    const arrayDisplayName = displayName.split(" ");
+    switch (arrayDisplayName.length) {
+      case 1:
+        db.collection("usuarios")
+          .doc(props.usuario.uid)
+          .update({
+            displayName: nombre,
+          })
+          .then((res) => {
+            setError("Nombre actualizado");
+            setNombre("");
+          });
+        break;
+
+      case 2:
+        db.collection("usuarios")
+          .doc(props.usuario.uid)
+          .update({
+            displayName: nombre + " " + arrayDisplayName[1],
+          })
+          .then((res) => {
+            setError("Nombre actualizado");
+            setNombre("");
+          });
+        break;
+
+      case 3:
+        db.collection("usuarios")
+          .doc(props.usuario.uid)
+          .update({
+            displayName:
+              nombre + " " + arrayDisplayName[1] + " " + arrayDisplayName[2],
+          })
+          .then((res) => {
+            setError("Nombre actualizado");
+            setNombre("");
+          });
+        break;
+
+      case 4:
+        db.collection("usuarios")
+          .doc(props.usuario.uid)
+          .update({
+            displayName:
+              nombre + " " + arrayDisplayName[2] + " " + arrayDisplayName[3],
+          })
+          .then((res) => {
+            setError("Nombre actualizado");
+            setNombre("");
+          });
+        break;
+
+      default:
+        db.collection("usuarios")
+          .doc(props.usuario.uid)
+          .update({
+            displayName: nombre,
+          })
+          .then((res) => {
+            setError("Nombre actualizado");
+            setNombre("");
+          });
+        break;
+    }
+  };
+
+  const updateApellido = () => {
+    const displayName = props.usuario.displayName;
+    const arrayDisplayName = displayName.split(" ");
+    switch (arrayDisplayName.length) {
+      case 1:
+        db.collection("usuarios")
+          .doc(props.usuario.uid)
+          .update({
+            displayName: arrayDisplayName[0] + " " + apellido,
+          })
+          .then((res) => {
+            setError("Apellido actualizado");
+            setApellido("");
+          });
+        break;
+
+      case 2:
+        db.collection("usuarios")
+          .doc(props.usuario.uid)
+          .update({
+            displayName: arrayDisplayName[0] + " " + apellido,
+          })
+          .then((res) => {
+            setError("Apellido actualizado");
+            setApellido("");
+          });
+        break;
+
+      case 3:
+        db.collection("usuarios")
+          .doc(props.usuario.uid)
+          .update({
+            displayName:
+              arrayDisplayName[0] + " " + arrayDisplayName[1] + " " + apellido,
+          })
+          .then((res) => {
+            setError("Apellido actualizado");
+            setApellido("");
+          });
+        break;
+
+      case 4:
+        db.collection("usuarios")
+          .doc(props.usuario.uid)
+          .update({
+            displayName:
+              arrayDisplayName[0] +
+              " " +
+              arrayDisplayName[1] +
+              " " +
+              arrayDisplayName[2] +
+              " " +
+              apellido,
+          })
+          .then((res) => {
+            setError("Apellido actualizado");
+            setApellido("");
+          });
+        break;
+
+      default:
+        db.collection("usuarios")
+          .doc(props.usuario.uid)
+          .update({
+            displayName: apellido,
+          })
+          .then((res) => {
+            setError("Apellido actualizado");
+            setApellido("");
+          });
+        break;
+    }
+  };
+
+  const updateAbout = () => {
+    db.collection("usuarios")
+      .doc(props.usuario.uid)
+      .update({
+        about_me: about,
+      })
+      .then((res) => {
+        setError("Información actualizada");
+        setAbout("");
+      });
+  };
+
+  const updateUsername = () => {
+    db.collection("usuarios")
+      .doc(props.usuario.uid)
+      .update({
+        username: username,
+      })
+      .then((res) => {
+        setError("Usuario actualizado");
+        setUsername("");
+      });
   };
 
   const procesarNombre = (event) => {
@@ -35,6 +202,7 @@ const MiPerfil = () => {
     }
     console.log(nombre);
     setError(null);
+    updateNombre();
   };
 
   const procesarApellido = (event) => {
@@ -57,6 +225,7 @@ const MiPerfil = () => {
     }
     console.log(apellido);
     setError(null);
+    updateApellido();
   };
 
   const procesarAbout = (event) => {
@@ -75,6 +244,7 @@ const MiPerfil = () => {
     }
     console.log(about);
     setError(null);
+    updateAbout();
   };
 
   const procesarUsername = (event) => {
@@ -97,6 +267,7 @@ const MiPerfil = () => {
     }
     console.log(username);
     setError(null);
+    updateUsername();
   };
 
   return (
@@ -114,7 +285,21 @@ const MiPerfil = () => {
         <div className="d-flex row justify-content-center">
           <div className="col-12 col-md-6 px-0">
             <div className="container">
-              {error && <div className="alert alert-danger">{error}</div>}
+              {error && (
+                <div
+                  className={
+                    error !== "Nombre actualizado" &&
+                    error !== "Apellido actualizado" &&
+                    error !== "Información actualizada" &&
+                    error !== "Usuario actualizado"
+                      ? "alert alert-danger"
+                      : "alert alert-success"
+                  }
+                  role={"alert"}
+                >
+                  {error}
+                </div>
+              )}
               <p>
                 <strong>Ingresa tus datos</strong>
               </p>

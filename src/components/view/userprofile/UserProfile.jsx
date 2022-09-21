@@ -7,7 +7,6 @@ const UserProfile = (props) => {
   useEffect(() => {
     if (props.usuario) {
       console.log("❤");
-      console.log(props.usuario);
     } else {
       props.history.push("/login");
     }
