@@ -26,6 +26,7 @@ import TerminosCondiciones from "./components/view/TerminosCondiciones";
 import ResetPassword from "./components/view/ResetPassword";
 import Cargando from "./components/component/Cargando";
 import Configuracion from "./components/view/configuracion/Configuracion";
+import Encuesta from "./components/view/encuesta/Encuesta";
 
 function App() {
   const [firebaseUser, setFirebaseUser] = useState(false);
@@ -72,6 +73,9 @@ function App() {
               "contenedortodo col-11 col-sm-8 col-md-6 col-xl-4 mb-4 rounded"
             }
           />
+        </Route>
+        <Route path="/encuesta">
+          <Encuesta />
         </Route>
         <Route path="/registro">
           <Registro />
