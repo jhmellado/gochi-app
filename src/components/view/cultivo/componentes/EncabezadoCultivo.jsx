@@ -40,12 +40,12 @@ const EncabezadoCultivo = (props) => {
               <b>{props.descripcion}</b>{" "}
             </p>
           </div>
-          <BotonFavoritos nameColeccion = {"cultivos"}
+          {props.usuario !== null ? <BotonFavoritos nameColeccion = {"cultivos"}
                           idUser = {props.usuario.uid}
                           nameDoc ={props.nombreCultivo}
                           urlDoc = {`/cultivo/${props.nombreCultivo}/${props.idCultivo}`}
                           idDoc = {props.idCultivo}
-                          imgDoc ={props.imgCultivo}/>
+                          imgDoc ={props.imgCultivo}/> : null}
         </div>
       </div>
     </div>
