@@ -93,11 +93,6 @@ const NavbarLogin = (props) => {
                   </a>
                 </li>
                 <li>
-                  <a className="dropdown-item" href={`/configuracion/${auth.currentUser.uid}`}>
-                    Configuración
-                  </a>
-                </li>
-                <li>
                   <hr className="dropdown-divider" />
                 </li>
                 <li>
