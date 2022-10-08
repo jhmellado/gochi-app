@@ -28,7 +28,7 @@ const Cultivo = (props) => {
   const obtenerDatos = useCallback(
     async (e) => {
       const data = await fetch(
-        `http://a0f8ad0f-c3e0-4ad1-b6e5-b9cd87a74995.clouding.host:3000/cultivos/${props.id}`
+        `http://1ec6706f-039a-4041-98ba-8caa0ad572db.clouding.host:3000/cultivos/${props.id}`
       );
       const users = await data.json();
       setCultivo(users);
@@ -38,7 +38,7 @@ const Cultivo = (props) => {
         .set({
           cul_id_go: users._id,
           cul_name_go: users.cul_name_go,
-          cul_url_api: `http://0b993829-ecd8-4c41-b93f-032c40fcb786.clouding.host:3000/cultivos/${props.id}`,
+          cul_url_api: `http://1ec6706f-039a-4041-98ba-8caa0ad572db.clouding.host:3000/cultivos/${props.id}`,
           cul_icon_go: users.cul_icon_go,
           cul_cultivo_go: true,
         });

@@ -9,7 +9,7 @@ const Album = (props) => {
 
   const obtenerDatos = useCallback(async () => {
     const data = await fetch(
-      `http://a0f8ad0f-c3e0-4ad1-b6e5-b9cd87a74995.clouding.host:3000/cultivos/${props.categoria}`
+      `http://1ec6706f-039a-4041-98ba-8caa0ad572db.clouding.host:3000/cultivos/${props.categoria}`
     );
     const users = await data.json();
     setCultivos(users);
