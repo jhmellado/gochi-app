@@ -10,8 +10,9 @@ const PaginaDos = (props) => {
   return (
     <div>
       <div className="mb-3">
+      <h2 className="text-center">Queremos saber más sobre ti ❤🌱</h2>
         <div className="d-flex row justify-content-center">
-          <p> ¿P3?</p>
+          <p> ¿Ha cultivado antes?</p>
           <div className="form-check">
             <input
               className="form-check-input"
@@ -43,7 +44,7 @@ const PaginaDos = (props) => {
 
       <div className="mb-3">
         <div className="d-flex row justify-content-center">
-          <p> ¿P4?</p>
+          <p> ¿Qué tipo de agricultor se considera usted?</p>
           <div className="form-check">
             <input
               className="form-check-input"
@@ -54,7 +55,7 @@ const PaginaDos = (props) => {
               onChange={(event) => preguntaCuatro(event.target.value)}
             />
             <label className="form-check-label" htmlFor="pre41">
-              Sí
+              Novato
             </label>
           </div>
           <div className="form-check">
@@ -67,7 +68,7 @@ const PaginaDos = (props) => {
               onChange={(event) => preguntaCuatro(event.target.value)}
             />
             <label className="form-check-label" htmlFor="pre42">
-              No
+              Con experiencia
             </label>
           </div>
         </div>

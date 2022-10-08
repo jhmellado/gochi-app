@@ -75,7 +75,7 @@ function App() {
           />
         </Route>
         <Route path="/encuesta">
-          <Encuesta />
+          <Encuesta usuario={firebaseUser}/>
         </Route>
         <Route path="/registro">
           <Registro />

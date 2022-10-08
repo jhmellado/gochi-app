@@ -61,6 +61,7 @@ const Login = (props) => {
                     uid: res.user.uid,
                     displayName: res.user.displayName,
                     email: res.user.email,
+                    encuesta: false,
                     img_profile: res.user.photoURL,
                     about_me: "",
                     instagram: {
@@ -78,7 +79,7 @@ const Login = (props) => {
                   })
                   .then((res) => {
                     if (props.userprofile) {
-                      props.history.push("/userprofile");
+                      props.history.push("/encuesta");
                       props.history.go(0);
                     } else {
                       props.history.go(0);
@@ -107,7 +108,7 @@ const Login = (props) => {
           setEmail("");
           setError(null);
           if (props.userprofile) {
-            props.history.push("/userprofile");
+            props.history.push("/encuesta");
             props.history.go(0);
           } else {
             props.history.go(0);

@@ -12,7 +12,8 @@ const UserProfile = (props) => {
 
   useEffect(() => {
     if (props.usuario) {
-      db.collection("favoritos")
+      if (props.usuario.encuesta === true) {
+        db.collection("favoritos")
         .doc(props.usuario.uid)
         .collection("cultivos")
         .get()
@@ -34,6 +35,10 @@ const UserProfile = (props) => {
           });
           setRecopilacionFavoritos(cursos.length);
         });
+      } else {
+        props.history.push("/encuesta");
+      }
+      
     } else {
       props.history.push("/login");
     }

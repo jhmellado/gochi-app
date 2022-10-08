@@ -10,8 +10,9 @@ const PaginaTres = (props) => {
   return (
     <div>
       <div className="mb-3">
+      <h2 className="text-center">Las últimas preguntas 😎👍</h2>
         <div className="d-flex row justify-content-center">
-          <p> ¿P5?</p>
+          <p> ¿Qué productos compraría por internet para su huerta?</p>
           <div className="form-check">
             <input
               className="form-check-input"
@@ -22,7 +23,7 @@ const PaginaTres = (props) => {
               onChange={(event) => preguntaCinco(event.target.value)}
             />
             <label className="form-check-label" htmlFor="pre51">
-              Sí
+              Humus de lombriz
             </label>
           </div>
           <div className="form-check">
@@ -35,7 +36,7 @@ const PaginaTres = (props) => {
               onChange={(event) => preguntaCinco(event.target.value)}
             />
             <label className="form-check-label" htmlFor="pre52">
-              No
+              Abonos para la huerta
             </label>
           </div>
         </div>
@@ -43,7 +44,7 @@ const PaginaTres = (props) => {
 
       <div className="mb-3">
         <div className="d-flex row justify-content-center">
-          <p> ¿P6?</p>
+          <p> ¿Qué cultivo es de su preferencia?</p>
           <div className="form-check">
             <input
               className="form-check-input"
@@ -54,7 +55,7 @@ const PaginaTres = (props) => {
               onChange={(event) => preguntaSeis(event.target.value)}
             />
             <label className="form-check-label" htmlFor="pre61">
-              Sí
+              Frutales
             </label>
           </div>
           <div className="form-check">
@@ -67,7 +68,59 @@ const PaginaTres = (props) => {
               onChange={(event) => preguntaSeis(event.target.value)}
             />
             <label className="form-check-label" htmlFor="pre62">
-              No
+              Vegetales
+            </label>
+          </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="pregunta6"
+              id="pre62"
+              value={false}
+              onChange={(event) => preguntaSeis(event.target.value)}
+            />
+            <label className="form-check-label" htmlFor="pre62">
+              Especias
+            </label>
+          </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="pregunta6"
+              id="pre62"
+              value={false}
+              onChange={(event) => preguntaSeis(event.target.value)}
+            />
+            <label className="form-check-label" htmlFor="pre62">
+              Aromáticas
+            </label>
+          </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="pregunta6"
+              id="pre62"
+              value={false}
+              onChange={(event) => preguntaSeis(event.target.value)}
+            />
+            <label className="form-check-label" htmlFor="pre62">
+              Flores
+            </label>
+          </div>
+          <div className="form-check">
+            <input
+              className="form-check-input"
+              type="radio"
+              name="pregunta6"
+              id="pre62"
+              value={false}
+              onChange={(event) => preguntaSeis(event.target.value)}
+            />
+            <label className="form-check-label" htmlFor="pre62">
+              Suculentas
             </label>
           </div>
         </div>

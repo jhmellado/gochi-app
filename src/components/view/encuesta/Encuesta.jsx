@@ -1,5 +1,8 @@
 import React from "react";
 import { useState } from "react";
+import { withRouter } from "react-router";
+import { db } from "../../../firebase";
+import Cargando from "../../component/Cargando";
 import PaginaDos from "./componentes/PaginaDos";
 import PaginaTres from "./componentes/PaginaTres";
 import PaginaUno from "./componentes/PaginaUno";
@@ -15,23 +18,35 @@ const Encuesta = (props) => {
   const [preguntaSeis, setPreguntaSeis] = useState(null);
 
   const encuestaFinalizada = () => {
-    const data = [{
-      preguntaUno: preguntaUno,
-      preguntaDos: preguntaDos,
-      preguntaTres: preguntaTres,
-      preguntaCuatro: preguntaCuatro,
-      preguntaCinco: preguntaCinco,
-      preguntaSeis: preguntaSeis,
-    }];
-    console.table(data);
+    db.collection("data")
+        .doc(props.usuario.uid)
+        .set({
+          preguntaUno: preguntaUno,
+          preguntaDos: preguntaDos,
+          preguntaTres: preguntaTres,
+          preguntaCuatro: preguntaCuatro,
+          preguntaCinco: preguntaCinco,
+          preguntaSeis: preguntaSeis,
+        })
+        .then((res) => {
+          db.collection("usuarios")
+                  .doc(props.usuario.uid)
+                  .update({
+                    encuesta: true,
+                  })
+                  .then((res) => {
+                      props.history.push("/userprofile");
+                      props.history.go(0);
+                  });
+
+        });
   };
 
-  return (  
+  return props.usuario !== false ? (
     <div className="container my-5">
       <div className="d-flex row justify-content-center">
         <div className="col-12 col-md-8 px-0">
           <div className="container">
-            <h1 className="text-center">pagina {cambiarPagina}</h1>
             {error && (
               <div className="alert alert-danger text-center">{error}</div>
             )}
@@ -51,10 +66,10 @@ const Encuesta = (props) => {
               />
             ) : cambiarPagina === 3 ? (
               <PaginaTres
-              pCinco={preguntaCinco}
-              pSeis={preguntaSeis}
-              setPreguntaCinco={setPreguntaCinco}
-              setPreguntaSeis={setPreguntaSeis} 
+                pCinco={preguntaCinco}
+                pSeis={preguntaSeis}
+                setPreguntaCinco={setPreguntaCinco}
+                setPreguntaSeis={setPreguntaSeis}
               />
             ) : null}
 
@@ -64,7 +79,10 @@ const Encuesta = (props) => {
                   <div className="col-3 text-center">
                     <button
                       className="btn btn-primary"
-                      onClick={() => setCambiarPagina(cambiarPagina + 1)}
+                      onClick={() => {
+                        setCambiarPagina(cambiarPagina + 1);
+                        setError(null);
+                      }}
                     >
                       Siguiente
                     </button>
@@ -97,7 +115,10 @@ const Encuesta = (props) => {
                     <div className="col-3 text-center">
                       <button
                         className="btn btn-primary"
-                        onClick={() => setCambiarPagina(cambiarPagina + 1)}
+                        onClick={() => {
+                          setCambiarPagina(cambiarPagina + 1);
+                          setError(null);
+                        }}
                       >
                         Siguiente
                       </button>
@@ -141,7 +162,10 @@ const Encuesta = (props) => {
                     <div className="col-3 text-center">
                       <button
                         className="btn btn-primary"
-                        onClick={() => encuestaFinalizada()}
+                        onClick={() => {
+                          encuestaFinalizada();
+                          setError(null);
+                        }}
                       >
                         Finalizar
                       </button>
@@ -177,7 +201,7 @@ const Encuesta = (props) => {
         </div>
       </div>
     </div>
-  );
+  ):(<Cargando/>);
 };
 
-export default Encuesta;
+export default withRouter(Encuesta);

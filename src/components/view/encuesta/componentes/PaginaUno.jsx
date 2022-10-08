@@ -10,6 +10,7 @@ const PaginaUno = (props) => {
   return (
     <div>
       <div className="mb-3">
+      <h2 className="text-center">Preguntas sobre sus espectativas respecto a mihuertafacil.com</h2>
         <div className="d-flex row justify-content-center">
           <p> ¿Considera que encontrará la información que anda buscando?</p>
           <div className="form-check">
@@ -43,7 +44,7 @@ const PaginaUno = (props) => {
 
       <div className="mb-3">
         <div className="d-flex row justify-content-center">
-          <p> ¿Le recomendaría esta página a un adolescente?</p>
+          <p> ¿Cómo se enteró de mihuertafacil.com?</p>
           <div className="form-check">
             <input
               className="form-check-input"
@@ -54,7 +55,7 @@ const PaginaUno = (props) => {
               onChange={(event) => preguntaDos(event.target.value)}
             />
             <label className="form-check-label" htmlFor="pre21">
-              Sí
+              Redes Sociales
             </label>
           </div>
           <div className="form-check">
@@ -67,7 +68,7 @@ const PaginaUno = (props) => {
               onChange={(event) => preguntaDos(event.target.value)}
             />
             <label className="form-check-label" htmlFor="pre22">
-              No
+              Buscando información por la web
             </label>
           </div>
         </div>
