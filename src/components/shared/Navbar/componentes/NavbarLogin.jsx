@@ -162,15 +162,8 @@ const NavbarLogin = (props) => {
               Mi perfil
             </a>
           </div>
-          <div className="dropdown offcanvas-header">
-            <a
-              href={`/configuracion/${auth.currentUser.uid}`}
-              id="dropdownMenu"
-              className="btn btn-outline-warning text-dark shadow w-100"
-            >
-              Configuracion
-            </a>
-          </div>
+          
+          
           <hr className="offcanvas-divider" />
           <div className="dropdown offcanvas-header">
             <a
