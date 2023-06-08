@@ -1,0 +1,22 @@
+{
+  "files": {
+    "main.css": "/gochi-app/static/css/main.31c8ee7c.css",
+    "main.js": "/gochi-app/static/js/main.4602f22f.js",
+    "static/js/787.a63ecee5.chunk.js": "/gochi-app/static/js/787.a63ecee5.chunk.js",
+    "static/media/foto_home.png": "/gochi-app/static/media/foto_home.b3510b27ae0af5ad45d0.png",
+    "static/media/Caveat-VariableFont_wght.ttf": "/gochi-app/static/media/Caveat-VariableFont_wght.834178e16d110b21c85e.ttf",
+    "static/media/WorkSans-Italic-VariableFont_wght.ttf": "/gochi-app/static/media/WorkSans-Italic-VariableFont_wght.67c3dc80c3f8171f526e.ttf",
+    "static/media/Playball-Regular.ttf": "/gochi-app/static/media/Playball-Regular.71988dd7eaaef16a92b6.ttf",
+    "static/media/Oswald-VariableFont_wght.ttf": "/gochi-app/static/media/Oswald-VariableFont_wght.46d7853f0185f6bf0c93.ttf",
+    "static/media/GOCHI.svg": "/gochi-app/static/media/GOCHI.734497c15285565a749554390300e285.svg",
+    "static/media/gochi_logo_sf.svg": "/gochi-app/static/media/gochi_logo_sf.8f399d24b8cb9cba0bb763ceae19a362.svg",
+    "index.html": "/gochi-app/index.html",
+    "main.31c8ee7c.css.map": "/gochi-app/static/css/main.31c8ee7c.css.map",
+    "main.4602f22f.js.map": "/gochi-app/static/js/main.4602f22f.js.map",
+    "787.a63ecee5.chunk.js.map": "/gochi-app/static/js/787.a63ecee5.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.31c8ee7c.css",
+    "static/js/main.4602f22f.js"
+  ]
+}
