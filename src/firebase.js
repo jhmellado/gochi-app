@@ -4,12 +4,12 @@ import 'firebase/auth';
 import 'firebase/storage';
 
 const firebaseConfig = {
-  apiKey: "AIzaSyBAdWETY4SGELGrtTWgT908Nr1tLsO2M-U",
-  authDomain: "mihuetafacil.firebaseapp.com",
-  projectId: "mihuetafacil",
-  storageBucket: "mihuetafacil.appspot.com",
-  messagingSenderId: "631887267271",
-  appId: "1:631887267271:web:ad46ace497e6827aa845e2"
+  apiKey: "AIzaSyCBfrTzjno2wyGhCHpxp9s-STDwKakf8ZE",
+  authDomain: "mihuertafacilcom.firebaseapp.com",
+  projectId: "mihuertafacilcom",
+  storageBucket: "mihuertafacilcom.appspot.com",
+  messagingSenderId: "370891791525",
+  appId: "1:370891791525:web:9ad015c7e634917d34814c"
   };
 
   // Initialize Firebase
